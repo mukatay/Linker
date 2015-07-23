@@ -11,6 +11,11 @@ import Parse
 
 class ProfileViewController: UIViewController {
     
+    var sections = [
+        "System accounts" : ["row", "row"],
+        "second": ["row", "row"]
+    ]
+
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var profileImage: UIImageView!
@@ -25,21 +30,25 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.dataSource = self
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
         userName.text = user!.username
         emailAddress.text = user!.email
         
-        if let image = PFUser.currentUser()?.valueForKey("profilePicture") as? PFFile{
-                image.getDataInBackgroundWithBlock{ (data: NSData?, error: NSError?) -> Void in
-                    if let data = data {
-                        if let error = error {
-                            ErrorHandling.defaultErrorHandler(error)
-                        }
-                        
-                        let image = UIImage(data: data, scale: 1.0)!
-                        self.profileImage.layer.masksToBounds = true;
-                        self.profileImage.layer.cornerRadius = self.profileImage.frame.height/2;
-                        self.profileImage.image = image
+        if let image = PFUser.currentUser()?.valueForKey("profilePicture") as? PFFile {
+            image.getDataInBackgroundWithBlock{ (data: NSData?, error: NSError?) -> Void in
+                if let data = data {
+                    if let error = error {
+                        ErrorHandling.defaultErrorHandler(error)
+                    }
+                    
+                    let image = UIImage(data: data, scale: 1.0)!
+                    self.profileImage.layer.masksToBounds = true;
+                    self.profileImage.layer.cornerRadius = self.profileImage.frame.height/2;
+                    self.profileImage.image = image
                 }
             }
         }
@@ -51,11 +60,25 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("UserProfileCell", forIndexPath: indexPath) as! ProfileTableViewCell
         
+        let key = Array(sections.keys)[indexPath.section]
+        let value = sections[key]![indexPath.row]
+        
+        // at this point value would be the title of the row
+        
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        let key = Array(sections.keys)[section]
+        return sections[key]!.count
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return Array(sections.keys).count
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return Array(sections.keys)[section]
     }
 }
 

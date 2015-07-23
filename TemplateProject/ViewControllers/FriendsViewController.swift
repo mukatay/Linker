@@ -10,10 +10,17 @@ import UIKit
 import FBSDKCoreKit
 
 class FriendsViewController: UIViewController {
+
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.dataSource = self
 
         // Do any additional setup after loading the view.
     }
@@ -23,7 +30,7 @@ class FriendsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
 
@@ -34,4 +41,20 @@ class FriendsViewController: UIViewController {
     }
     */
 
+}
+
+extension FriendsViewController: UITableViewDataSource {
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+        
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("FriendCell") as! FriendTableViewCell
+  
+        return cell
+    }
+
+    
 }

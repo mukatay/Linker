@@ -14,6 +14,5 @@ class SettingsViewController: UIViewController {
     @IBAction func logOutTapped(sender: UIBarButtonItem) {
         PFFacebookUtils.unlinkUserInBackground(PFUser.currentUser()!)
         PFUser.logOut()
-
     }
 }

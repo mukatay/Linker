@@ -48,6 +48,8 @@ class EditProfileViewController: UIViewController{
                 }
             }
         }
+        
+        tableView.reloadData()
     }
     
     func takePhoto() {
@@ -58,30 +60,24 @@ class EditProfileViewController: UIViewController{
             
             self.profileImage.image = image
             
-            //            let imageData = UIImageJPEGRepresentation(self.profileImage.image, 0.8)
-            //            let imageFile = PFFile(data: imageData)
-            //
-            //            self.photoUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler{                               () -> Void in
-            //                UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
-            //            }
-            //            imageFile.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            //
-            //                if let error = error {
-            //                    ErrorHandling.defaultErrorHandler(error)
-            //                }
-            //
-            //                UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
-            //
-            //            }
-            //
-            //            self.user!.setObject(imageFile, forKey: "profilePicture")
-            //            self.user!.saveInBackground()
+            let imageData = UIImageJPEGRepresentation(self.profileImage.image, 0.8)
+            let imageFile = PFFile(data: imageData)
+    
+            imageFile.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             
+                if let error = error {
+                    ErrorHandling.defaultErrorHandler(error)
+                }
+                self.user!.setObject(imageFile, forKey: "profilePicture")
+                self.user!.saveInBackground()
+            }
         }
     }
     
     @IBAction func saveTapped(sender: UIBarButtonItem) {
         println("tapped")
+        
+        PFUser.currentUser()?.saveInBackground()
         
         self.navigationController!.popViewControllerAnimated(true)
     }
@@ -98,10 +94,6 @@ extension EditProfileViewController: UITableViewDataSource {
         cell.textField.text = ""
         
         cell.textField.text = user?[key] as? String
-        
-        
-        //            self.user!.setObject(cell.usernameTextField.text!, forKey: "username")
-        //            user?.saveInBackgroundWithBlock(nil)
         
         return cell
     }

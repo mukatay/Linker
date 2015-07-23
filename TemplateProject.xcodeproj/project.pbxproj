@@ -41,6 +41,7 @@
 		71736A0C1B55DF1500B290FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71736A0B1B55DF1500B290FC /* Main.storyboard */; };
 		71C9D7941B5EEFD500A1774B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9D7931B5EEFD500A1774B /* SettingsViewController.swift */; };
 		71C9D7981B5F00BC00A1774B /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9D7971B5F00BC00A1774B /* FriendsViewController.swift */; };
+		71C9D7A31B6002C300A1774B /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9D7A21B6002C300A1774B /* FriendTableViewCell.swift */; };
 		71E10F221B56E9970009A0E6 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E10F211B56E9970009A0E6 /* ShareViewController.swift */; };
 		71E10F241B56E9970009A0E6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71E10F231B56E9970009A0E6 /* MainInterface.storyboard */; };
 		71E10F271B56E9970009A0E6 /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 71E10F1D1B56E9970009A0E6 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -190,6 +191,7 @@
 		71736A0B1B55DF1500B290FC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		71C9D7931B5EEFD500A1774B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ViewControllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		71C9D7971B5F00BC00A1774B /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendsViewController.swift; path = ViewControllers/FriendsViewController.swift; sourceTree = "<group>"; };
+		71C9D7A21B6002C300A1774B /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendTableViewCell.swift; path = Views/Friends/FriendTableViewCell.swift; sourceTree = "<group>"; };
 		71E10F1D1B56E9970009A0E6 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		71E10F201B56E9970009A0E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71E10F211B56E9970009A0E6 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 		71400E3C1B598A1C00E3B8CB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				71C9D79B1B60029F00A1774B /* Friends */,
 				71400E3D1B598A4000E3B8CB /* Profile */,
 			);
 			name = Views;
@@ -362,6 +365,14 @@
 				71400E4F1B5D9EB200E3B8CB /* PhotoTakingHelper.swift */,
 			);
 			name = PhotoTaking;
+			sourceTree = "<group>";
+		};
+		71C9D79B1B60029F00A1774B /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				71C9D7A21B6002C300A1774B /* FriendTableViewCell.swift */,
+			);
+			name = Friends;
 			sourceTree = "<group>";
 		};
 		71E10F1E1B56E9970009A0E6 /* ShareExtension */ = {
@@ -571,6 +582,7 @@
 				624262C01B4460CB00005CE3 /* AppDelegate.swift in Sources */,
 				624262C41B4460CB00005CE3 /* ParseLoginHelper.swift in Sources */,
 				71400E3F1B598A8B00E3B8CB /* ProfileViewController.swift in Sources */,
+				71C9D7A31B6002C300A1774B /* FriendTableViewCell.swift in Sources */,
 				71C9D7941B5EEFD500A1774B /* SettingsViewController.swift in Sources */,
 				71400E491B5D894200E3B8CB /* EditProfileTableViewCell.swift in Sources */,
 				71400E431B598AF100E3B8CB /* ProfileTableViewCell.swift in Sources */,

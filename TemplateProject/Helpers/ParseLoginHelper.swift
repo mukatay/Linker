@@ -41,9 +41,12 @@ extension ParseLoginHelper : PFLogInViewControllerDelegate {
       self.callback(user, nil)
     } else {
         
-        FBSDKGraphRequest(graphPath: "/{user-id}/taggable_friends", parameters: nil, HTTPMethod: "GET").startWithCompletionHandler { (connection: FBSDKGraphRequestConnection!, result: AnyObject?, error: NSError?) -> Void in
-            
-            println(result)
+        FBSDKGraphRequest(graphPath: "/me/taggable_friends", parameters: nil, HTTPMethod: "GET").startWithCompletionHandler { (connection: FBSDKGraphRequestConnection!, result: AnyObject?, error: NSError?) -> Void in
+            if error == nil {
+                println("Friends are : \(result)")
+            } else {
+                println("Error Getting Friends \(error)");
+            }
         }
         
       // if this is a Facebook login, fetch the username from Facebook

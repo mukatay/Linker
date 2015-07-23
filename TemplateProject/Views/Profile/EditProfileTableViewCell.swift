@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import Parse
 
 class EditProfileTableViewCell: UITableViewCell {
+    @IBAction func valueChanged(sender: AnyObject) {
+        PFUser.currentUser()?[key] = textField.text
+    }
+    
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var textField: UITextField!
