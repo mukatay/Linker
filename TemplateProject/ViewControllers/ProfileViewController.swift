@@ -12,8 +12,7 @@ import Parse
 class ProfileViewController: UIViewController {
     
     var sections = [
-        "System accounts" : ["row", "row"],
-        "second": ["row", "row"]
+        "System accounts" : ["row"]
     ]
 
     @IBOutlet weak var tableView: UITableView!
@@ -38,19 +37,11 @@ class ProfileViewController: UIViewController {
         userName.text = user!.username
         emailAddress.text = user!.email
         
-        if let image = PFUser.currentUser()?.valueForKey("profilePicture") as? PFFile {
-            image.getDataInBackgroundWithBlock{ (data: NSData?, error: NSError?) -> Void in
-                if let data = data {
-                    if let error = error {
-                        ErrorHandling.defaultErrorHandler(error)
-                    }
-                    
-                    let image = UIImage(data: data, scale: 1.0)!
-                    self.profileImage.layer.masksToBounds = true;
-                    self.profileImage.layer.cornerRadius = self.profileImage.frame.height/2;
-                    self.profileImage.image = image
-                }
-            }
+        if let urlString = PFUser.currentUser()?.valueForKey("profilePicture") as? String, url = NSURL(string: urlString) {
+            self.profileImage.layer.masksToBounds = true;
+            self.profileImage.layer.cornerRadius = self.profileImage.frame.height/2;
+            profileImage.sd_setImageWithURL(url)
+//            profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NAME"))
         }
     }
 }

@@ -34,22 +34,18 @@ class EditProfileViewController: UIViewController{
         
         tableView.dataSource = self
         
-        if let image = PFUser.currentUser()?.valueForKey("profilePicture") as? PFFile{
-            image.getDataInBackgroundWithBlock{ (data: NSData?, error: NSError?) -> Void in
-                if let data = data {
-                    if let error = error {
-                        ErrorHandling.defaultErrorHandler(error)
-                    }
-                    
-                    let image = UIImage(data: data, scale: 1.0)!
-                    self.profileImage.layer.masksToBounds = true;
-                    self.profileImage.layer.cornerRadius = self.profileImage.frame.height/2;
-                    self.profileImage.image = image
-                }
-            }
-        }
-        
         tableView.reloadData()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let urlString = PFUser.currentUser()?.valueForKey("profilePicture") as? String, url = NSURL(string: urlString) {
+            self.profileImage.layer.masksToBounds = true;
+            self.profileImage.layer.cornerRadius = self.profileImage.frame.height/2;
+            profileImage.sd_setImageWithURL(url)
+//            profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NAME"))
+        }
     }
     
     func takePhoto() {

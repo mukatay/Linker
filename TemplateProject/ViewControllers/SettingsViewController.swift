@@ -11,6 +11,9 @@ import Parse
 
 class SettingsViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     @IBAction func logOutTapped(sender: UIBarButtonItem) {
         PFFacebookUtils.unlinkUserInBackground(PFUser.currentUser()!)
         PFUser.logOut()

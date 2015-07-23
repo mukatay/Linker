@@ -30,9 +30,9 @@ class ShareViewController: UIViewController {
         titleLabel.numberOfLines = 0
         titleLabel.text = title?.string
         titleLabel.sizeToFit()
-    }
-    
-    @IBAction func cancelButton(sender: UIButton) {
+        
+        popUpView.layer.masksToBounds = true;
+        popUpView.layer.cornerRadius = 15.0
         
     }
     
@@ -45,22 +45,22 @@ class ShareViewController: UIViewController {
 //        println("Hello:  \(title)")
 
         
-        NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.setObject(title, forKey: "webTitle")
-        NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.synchronize()
+//        NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.setObject(title, forKey: "webTitle")
+//        NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.synchronize()
+//        
+//        var input = self.extensionContext?.inputItems.first as! NSExtensionItem
+//        var itemProvider = input.attachments?.first as! NSItemProvider
+//        itemProvider.loadItemForTypeIdentifier("public.url", options: nil) { obj, error -> Void in
+//            
+//            let url = obj as! NSURL
+//            
+//            println(url.absoluteString)
+//            
+//            NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.setObject(url.absoluteString, forKey: "webURL")
+//            NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.synchronize()
+//            self.extensionContext!.completeRequestReturningItems([], completionHandler: nil)
         
-        var input = self.extensionContext?.inputItems.first as! NSExtensionItem
-        var itemProvider = input.attachments?.first as! NSItemProvider
-        itemProvider.loadItemForTypeIdentifier("public.url", options: nil) { obj, error -> Void in
-            
-            let url = obj as! NSURL
-            
-            println(url.absoluteString)
-            
-            NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.setObject(url.absoluteString, forKey: "webURL")
-            NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.synchronize()
-            self.extensionContext!.completeRequestReturningItems([], completionHandler: nil)
-            
-        }
+//        }
     }
 
     func configurationItems() -> [AnyObject]! {
@@ -77,7 +77,6 @@ class ShareViewController: UIViewController {
 //        
 //    }
 //
-//    
 //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 //        let popup: PopUpViewController!
 //        self.setPresentationStyleForSelfController(self, presentingController: popup)

@@ -20,6 +20,15 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="MTE-Zk-h2S">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" id="APU-rp-ClM" userLabel="SettingsCell" customClass="SettingsTableViewCell" customModule="TemplateProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="APU-rp-ClM" id="MOf-z6-lcg">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,6 +46,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="MTE-Zk-h2S" id="yJh-ZG-k9c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lMn-5P-Kwu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -111,7 +123,10 @@
                             <constraint firstAttribute="trailing" secondItem="oMN-fX-f7T" secondAttribute="trailing" id="yqu-9L-nzA"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Friends" id="ETO-Mg-fOc"/>
+                    <navigationItem key="navigationItem" title="Friends" id="ETO-Mg-fOc">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="H8G-hu-RQo"/>
+                        <barButtonItem key="rightBarButtonItem" title="Create group" id="Pmc-Mf-8vs"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="RAK-MX-TIZ" id="GUb-6Z-2st"/>
                         <outlet property="tableView" destination="oMN-fX-f7T" id="tx7-VA-p3z"/>
