@@ -10,6 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import Parse
 
+
 class FriendsViewController: UIViewController {
     
     var friendsData : [FBUser] = []
@@ -27,7 +28,9 @@ class FriendsViewController: UIViewController {
         FBSDKGraphRequest(graphPath: "/me/taggable_friends", parameters: ["limit" : "180"], HTTPMethod: "GET").startWithCompletionHandler { (connection: FBSDKGraphRequestConnection!, result: AnyObject?, error: NSError?) -> Void in
             if error == nil {
                 if let data = result?["data"] as? [[String: AnyObject]] {
-                    println("Friends are : \(data)")
+//                    println("Friends are : \(data)")
+                    NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.setObject(data, forKey: "FBData")
+                    NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.synchronize()
                     
                     for object in data {
                         if let username = object["name"] as? String, id = object["id"] as? String {
@@ -44,7 +47,7 @@ class FriendsViewController: UIViewController {
                 println("Error Getting Friends \(error)");
             }
         }
-  
+        
         // Do any additional setup after loading the view.
     }
     
@@ -86,7 +89,7 @@ extension FriendsViewController: UITableViewDataSource {
             cell.friendPicture.sd_setImageWithURL(url)
 //            profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NAME"))
         }
-                
+        
         return cell
     }
 }

@@ -34,6 +34,8 @@
 		62A07D661B1F79F2001F6916 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A07D651B1F79F2001F6916 /* libstdc++.6.dylib */; };
 		62A07D6E1B1F7FB9001F6916 /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B7E1B06BFA2000913E4 /* Bond.framework */; };
 		62A07D6F1B1F7FB9001F6916 /* Bond.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B7E1B06BFA2000913E4 /* Bond.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		710BBCB01B61BDDD00163E1E /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710BBCAF1B61BDDD00163E1E /* FriendsListViewController.swift */; };
+		710BBCB81B61BE7900163E1E /* FriendsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710BBCB71B61BE7900163E1E /* FriendsListTableViewCell.swift */; };
 		71400E3F1B598A8B00E3B8CB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71400E3E1B598A8B00E3B8CB /* ProfileViewController.swift */; };
 		71400E431B598AF100E3B8CB /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71400E421B598AF100E3B8CB /* ProfileTableViewCell.swift */; };
 		71400E471B5D887E00E3B8CB /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71400E461B5D887E00E3B8CB /* EditProfileViewController.swift */; };
@@ -185,6 +187,8 @@
 		62551BA11B06C373000913E4 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		62A07D651B1F79F2001F6916 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		62C8C1E01B06BD6500DC3EA7 /* TemplateProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TemplateProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		710BBCAF1B61BDDD00163E1E /* FriendsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
+		710BBCB71B61BE7900163E1E /* FriendsListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsListTableViewCell.swift; sourceTree = "<group>"; };
 		71400E2A1B5820DA00E3B8CB /* TemplateProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TemplateProject.entitlements; sourceTree = "<group>"; };
 		71400E3E1B598A8B00E3B8CB /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ViewControllers/ProfileViewController.swift; sourceTree = "<group>"; };
 		71400E421B598AF100E3B8CB /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileTableViewCell.swift; path = Views/Profile/ProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -418,7 +422,9 @@
 			children = (
 				71E10F2C1B5705720009A0E6 /* ShareExtension.entitlements */,
 				71E10F211B56E9970009A0E6 /* ShareViewController.swift */,
+				710BBCAF1B61BDDD00163E1E /* FriendsListViewController.swift */,
 				71E10F231B56E9970009A0E6 /* MainInterface.storyboard */,
+				710BBCB71B61BE7900163E1E /* FriendsListTableViewCell.swift */,
 				71E10F1F1B56E9970009A0E6 /* Supporting Files */,
 			);
 			path = ShareExtension;
@@ -673,6 +679,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				710BBCB01B61BDDD00163E1E /* FriendsListViewController.swift in Sources */,
+				710BBCB81B61BE7900163E1E /* FriendsListTableViewCell.swift in Sources */,
 				71E10F221B56E9970009A0E6 /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

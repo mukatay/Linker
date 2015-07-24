@@ -9,13 +9,17 @@
 import UIKit
 import Social
 
-class ShareViewController: UIViewController {
+class ShareViewController: UITableViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     
-    @IBOutlet weak var popUpView: UIView!
+    @IBOutlet weak var imageView: UIImageView!
     
-
+    @IBOutlet weak var commentTextField: UITextField!
+    
+    @IBOutlet weak var friendsTextField: UITextField!
+    
+    
     func isContentValid() -> Bool {
         // Do validation of contentText and/or NSExtensionContext attachments here
         return true
@@ -30,56 +34,31 @@ class ShareViewController: UIViewController {
         titleLabel.numberOfLines = 0
         titleLabel.text = title?.string
         titleLabel.sizeToFit()
-        
-        popUpView.layer.masksToBounds = true;
-        popUpView.layer.cornerRadius = 15.0
-        
+
     }
     
-    @IBAction func shareButton(sender: UIButton) {
-        // This is called after the user selects Post. Do the upload of contentText and/or NSExtensionContext attachments.
-    
-        // Inform the host that we're done, so it un-blocks its UI. Note: Alternatively you could call super's -didSelectPost, which will similarly complete the extension context.
-    
-//        var title = self.contentText
-//        println("Hello:  \(title)")
-
+    @IBAction func shareButton(sender: UIBarButtonItem) {
+        
         
 //        NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.setObject(title, forKey: "webTitle")
 //        NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.synchronize()
 //        
-//        var input = self.extensionContext?.inputItems.first as! NSExtensionItem
-//        var itemProvider = input.attachments?.first as! NSItemProvider
-//        itemProvider.loadItemForTypeIdentifier("public.url", options: nil) { obj, error -> Void in
-//            
-//            let url = obj as! NSURL
-//            
-//            println(url.absoluteString)
-//            
+        var input = self.extensionContext?.inputItems.first as! NSExtensionItem
+        var itemProvider = input.attachments?.first as! NSItemProvider
+        itemProvider.loadItemForTypeIdentifier("public.url", options: nil) { obj, error -> Void in
+            
+        let url = obj as! NSURL
+            
+        println("URL: \(url.absoluteString)")
+            
 //            NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.setObject(url.absoluteString, forKey: "webURL")
 //            NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.synchronize()
 //            self.extensionContext!.completeRequestReturningItems([], completionHandler: nil)
-        
-//        }
+//        
+        }
     }
 
     func configurationItems() -> [AnyObject]! {
-        // To add configuration options via table cells at the bottom of the sheet, return an array of SLComposeSheetConfigurationItem here.
         return []
     }
-    
-//    func setPresentationStyleForSelfController(selfController: UIViewController, presentingController: UIViewController) {
-//        
-//        presentingController.providesPresentationContextTransitionStyle = true;
-//        presentingController.definesPresentationContext = true;
-//        
-//        presentingController.setModalPresentationStyle(UIModalPresentationOverCurrentContext)
-//        
-//    }
-//
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        let popup: PopUpViewController!
-//        self.setPresentationStyleForSelfController(self, presentingController: popup)
-//        
-//    }
 }
