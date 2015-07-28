@@ -8,6 +8,9 @@
 
 import UIKit
 import Social
+import CoreGraphics
+import MobileCoreServices
+
 
 class ShareViewController: UITableViewController {
 
@@ -19,30 +22,29 @@ class ShareViewController: UITableViewController {
     
     @IBOutlet weak var friendsTextField: UITextField!
     
-    
     func isContentValid() -> Bool {
         // Do validation of contentText and/or NSExtensionContext attachments here
         return true
     }
     
+    @IBOutlet weak var friendsTableViewCell: UITableViewCell!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        friendsTableViewCell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        
         var input = self.extensionContext?.inputItems.first as! NSExtensionItem
         var title = input.attributedContentText
+        
         titleLabel.lineBreakMode = .ByWordWrapping
         titleLabel.numberOfLines = 0
         titleLabel.text = title?.string
         titleLabel.sizeToFit()
-
     }
     
     @IBAction func shareButton(sender: UIBarButtonItem) {
         
-        
-//        NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.setObject(title, forKey: "webTitle")
-//        NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.synchronize()
-//        
         var input = self.extensionContext?.inputItems.first as! NSExtensionItem
         var itemProvider = input.attachments?.first as! NSItemProvider
         itemProvider.loadItemForTypeIdentifier("public.url", options: nil) { obj, error -> Void in
@@ -51,14 +53,15 @@ class ShareViewController: UITableViewController {
             
         println("URL: \(url.absoluteString)")
             
-//            NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.setObject(url.absoluteString, forKey: "webURL")
-//            NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.synchronize()
-//            self.extensionContext!.completeRequestReturningItems([], completionHandler: nil)
-//        
         }
     }
 
+    @IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func configurationItems() -> [AnyObject]! {
         return []
+        
     }
 }

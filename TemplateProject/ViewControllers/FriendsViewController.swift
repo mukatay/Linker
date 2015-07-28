@@ -10,20 +10,27 @@ import UIKit
 import FBSDKCoreKit
 import Parse
 
-
-class FriendsViewController: UIViewController {
+class FriendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate{
     
-    var friendsData : [FBUser] = []
+    var friendsData: [FBUser] = []
     
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var searchBar: UISearchBar!
     
+    var checked = [NSIndexPath: Bool]()
+    
+    var searchActive : Bool = false
+    var filtered:[FBUser] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         tableView.dataSource = self
+        tableView.delegate =  self
+        searchBar.delegate = self
+        
+        self.tableView.allowsMultipleSelection = true
         
         FBSDKGraphRequest(graphPath: "/me/taggable_friends", parameters: ["limit" : "180"], HTTPMethod: "GET").startWithCompletionHandler { (connection: FBSDKGraphRequestConnection!, result: AnyObject?, error: NSError?) -> Void in
             if error == nil {
@@ -47,7 +54,6 @@ class FriendsViewController: UIViewController {
                 println("Error Getting Friends \(error)");
             }
         }
-        
         // Do any additional setup after loading the view.
     }
     
@@ -55,7 +61,6 @@ class FriendsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     /*
     // MARK: - Navigation
@@ -73,23 +78,93 @@ extension FriendsViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        if(searchActive) {
+            return filtered.count
+        }
         return friendsData.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("FriendCell") as! FriendTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("FriendCell", forIndexPath: indexPath) as! FriendTableViewCell
         
-        let friend = friendsData[indexPath.row]
+        if(searchActive){
+            cell.friendUsername.text = filtered[indexPath.row].username
+            if let urlString = filtered[indexPath.row].profilePic, url = NSURL(string: urlString) {
+                cell.friendPicture.layer.masksToBounds = true;
+                cell.friendPicture.layer.cornerRadius = cell.friendPicture.frame.height/2;
+                cell.friendPicture.sd_setImageWithURL(url)
+//              profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NAME"))
+            }
+        }else {
+            
+            let friend = friendsData[indexPath.row]
         
-        cell.friendUsername.text = friend.username
+            cell.friendUsername.text = friend.username
+            cell.accessoryType = UITableViewCellAccessoryType.None
         
-        if let urlString = friend.profilePic, url = NSURL(string: urlString) {
-            cell.friendPicture.layer.masksToBounds = true;
-            cell.friendPicture.layer.cornerRadius = cell.friendPicture.frame.height/2;
-            cell.friendPicture.sd_setImageWithURL(url)
-//            profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NAME"))
+            if checked[indexPath] == true {
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            }
+            
+            if let urlString = friend.profilePic, url = NSURL(string: urlString) {
+                cell.friendPicture.layer.masksToBounds = true;
+                cell.friendPicture.layer.cornerRadius = cell.friendPicture.frame.height/2;
+                cell.friendPicture.sd_setImageWithURL(url)
+//              profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NAME"))
+            }
         }
-        
         return cell
     }
+}
+
+extension FriendsViewController: UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! FriendTableViewCell
+        checked[indexPath] = true
+        cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+    }
+
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! FriendTableViewCell
+        checked[indexPath] = nil
+        cell.accessoryType = UITableViewCellAccessoryType.None
+    }
+    
+    private func getSelectedUsers() {
+        for indexPath in checked.keys {
+            let user = friendsData[indexPath.row]
+            
+            // Do whatever you want
+        }
+    }
+}
+
+extension FriendsViewController: UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+        searchActive = true;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchBar.text = ""
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchActive = false
+        tableView.reloadData()
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        let options = NSStringCompareOptions.CaseInsensitiveSearch
+        if searchText == "" {
+            searchActive = false
+        } else {
+            filtered = filter(friendsData){ $0.username.rangeOfString(searchText, options: options) != nil }
+            searchActive = true
+        }
+        self.tableView.reloadData()
+    }
+    
 }

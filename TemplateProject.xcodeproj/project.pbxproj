@@ -34,8 +34,6 @@
 		62A07D661B1F79F2001F6916 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A07D651B1F79F2001F6916 /* libstdc++.6.dylib */; };
 		62A07D6E1B1F7FB9001F6916 /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B7E1B06BFA2000913E4 /* Bond.framework */; };
 		62A07D6F1B1F7FB9001F6916 /* Bond.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B7E1B06BFA2000913E4 /* Bond.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		710BBCB01B61BDDD00163E1E /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710BBCAF1B61BDDD00163E1E /* FriendsListViewController.swift */; };
-		710BBCB81B61BE7900163E1E /* FriendsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710BBCB71B61BE7900163E1E /* FriendsListTableViewCell.swift */; };
 		71400E3F1B598A8B00E3B8CB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71400E3E1B598A8B00E3B8CB /* ProfileViewController.swift */; };
 		71400E431B598AF100E3B8CB /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71400E421B598AF100E3B8CB /* ProfileTableViewCell.swift */; };
 		71400E471B5D887E00E3B8CB /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71400E461B5D887E00E3B8CB /* EditProfileViewController.swift */; };
@@ -47,9 +45,13 @@
 		71C9D7A31B6002C300A1774B /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9D7A21B6002C300A1774B /* FriendTableViewCell.swift */; };
 		71C9D7AA1B61624200A1774B /* FBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9D7A91B61624200A1774B /* FBUser.swift */; };
 		71C9D7AD1B61634E00A1774B /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9D7AC1B61634E00A1774B /* SettingsTableViewCell.swift */; };
-		71E10F221B56E9970009A0E6 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E10F211B56E9970009A0E6 /* ShareViewController.swift */; };
+		71DFAB2C1B62E0300051D5A9 /* FBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9D7A91B61624200A1774B /* FBUser.swift */; };
+		71DFAB501B66AADB0051D5A9 /* FriendsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DFAB4F1B66AADB0051D5A9 /* FriendsListTableViewCell.swift */; };
+		71DFAB531B66AAE60051D5A9 /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DFAB511B66AAE60051D5A9 /* FriendsListViewController.swift */; };
+		71DFAB541B66AAE60051D5A9 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DFAB521B66AAE60051D5A9 /* ShareViewController.swift */; };
 		71E10F241B56E9970009A0E6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71E10F231B56E9970009A0E6 /* MainInterface.storyboard */; };
 		71E10F271B56E9970009A0E6 /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 71E10F1D1B56E9970009A0E6 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EED53DF8D8233A7D2D92796D /* libPods-ShareExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B38B478D0424D4A2A5325F /* libPods-ShareExtension.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,8 +189,7 @@
 		62551BA11B06C373000913E4 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		62A07D651B1F79F2001F6916 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		62C8C1E01B06BD6500DC3EA7 /* TemplateProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TemplateProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		710BBCAF1B61BDDD00163E1E /* FriendsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
-		710BBCB71B61BE7900163E1E /* FriendsListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsListTableViewCell.swift; sourceTree = "<group>"; };
+		67A12CAA8732AA953F28CFD7 /* Pods-ShareExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShareExtension/Pods-ShareExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		71400E2A1B5820DA00E3B8CB /* TemplateProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TemplateProject.entitlements; sourceTree = "<group>"; };
 		71400E3E1B598A8B00E3B8CB /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ViewControllers/ProfileViewController.swift; sourceTree = "<group>"; };
 		71400E421B598AF100E3B8CB /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileTableViewCell.swift; path = Views/Profile/ProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -201,12 +202,18 @@
 		71C9D7A21B6002C300A1774B /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendTableViewCell.swift; path = Views/Friends/FriendTableViewCell.swift; sourceTree = "<group>"; };
 		71C9D7A91B61624200A1774B /* FBUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FBUser.swift; path = Model/FBUser.swift; sourceTree = "<group>"; };
 		71C9D7AC1B61634E00A1774B /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewCell.swift; path = Views/Settings/SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		71DFAB301B630E1E0051D5A9 /* ShareExtension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShareExtension-Bridging-Header.h"; sourceTree = "<group>"; };
+		71DFAB341B630E760051D5A9 /* libPods-TemplateProject.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-TemplateProject.a"; path = "Pods/../build/Debug-iphoneos/libPods-TemplateProject.a"; sourceTree = "<group>"; };
+		71DFAB4F1B66AADB0051D5A9 /* FriendsListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendsListTableViewCell.swift; path = Views/FriendsListTableViewCell.swift; sourceTree = "<group>"; };
+		71DFAB511B66AAE60051D5A9 /* FriendsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendsListViewController.swift; path = ViewControllers/FriendsListViewController.swift; sourceTree = "<group>"; };
+		71DFAB521B66AAE60051D5A9 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareViewController.swift; path = ViewControllers/ShareViewController.swift; sourceTree = "<group>"; };
 		71E10F1D1B56E9970009A0E6 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		71E10F201B56E9970009A0E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		71E10F211B56E9970009A0E6 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		71E10F231B56E9970009A0E6 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		71E10F2C1B5705720009A0E6 /* ShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ShareExtension.entitlements; sourceTree = "<group>"; };
+		A2B38B478D0424D4A2A5325F /* libPods-ShareExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShareExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF2E83DEC7BB934B93C4D67 /* Pods-TemplateProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TemplateProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TemplateProject/Pods-TemplateProject.debug.xcconfig"; sourceTree = "<group>"; };
+		BAD65D61CDEF181A399E5C91 /* Pods-ShareExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShareExtension/Pods-ShareExtension.release.xcconfig"; sourceTree = "<group>"; };
 		DB38F10847CE066209F0DF97 /* Pods-TemplateProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TemplateProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-TemplateProject/Pods-TemplateProject.release.xcconfig"; sourceTree = "<group>"; };
 		E599FC9E224BF88EBE0832C9 /* libPods-TemplateProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TemplateProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -242,6 +249,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EED53DF8D8233A7D2D92796D /* libPods-ShareExtension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +261,8 @@
 			children = (
 				ABF2E83DEC7BB934B93C4D67 /* Pods-TemplateProject.debug.xcconfig */,
 				DB38F10847CE066209F0DF97 /* Pods-TemplateProject.release.xcconfig */,
+				67A12CAA8732AA953F28CFD7 /* Pods-ShareExtension.debug.xcconfig */,
+				BAD65D61CDEF181A399E5C91 /* Pods-ShareExtension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -289,6 +299,7 @@
 		62551B621B06BF33000913E4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				71DFAB341B630E760051D5A9 /* libPods-TemplateProject.a */,
 				62A07D651B1F79F2001F6916 /* libstdc++.6.dylib */,
 				62551BA11B06C373000913E4 /* libsqlite3.dylib */,
 				62551B9F1B06C35B000913E4 /* AudioToolbox.framework */,
@@ -309,6 +320,7 @@
 				62551B6A1B06BF6D000913E4 /* ParseFacebookUtilsV4.framework */,
 				62551B6B1B06BF6D000913E4 /* ParseUI.framework */,
 				E599FC9E224BF88EBE0832C9 /* libPods-TemplateProject.a */,
+				A2B38B478D0424D4A2A5325F /* libPods-ShareExtension.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -417,15 +429,32 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
+		71DFAB4C1B66AA140051D5A9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				71DFAB511B66AAE60051D5A9 /* FriendsListViewController.swift */,
+				71DFAB521B66AAE60051D5A9 /* ShareViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		71DFAB4D1B66AA230051D5A9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				71DFAB4F1B66AADB0051D5A9 /* FriendsListTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		71E10F1E1B56E9970009A0E6 /* ShareExtension */ = {
 			isa = PBXGroup;
 			children = (
+				71DFAB4D1B66AA230051D5A9 /* Views */,
+				71DFAB4C1B66AA140051D5A9 /* ViewControllers */,
 				71E10F2C1B5705720009A0E6 /* ShareExtension.entitlements */,
-				71E10F211B56E9970009A0E6 /* ShareViewController.swift */,
-				710BBCAF1B61BDDD00163E1E /* FriendsListViewController.swift */,
 				71E10F231B56E9970009A0E6 /* MainInterface.storyboard */,
-				710BBCB71B61BE7900163E1E /* FriendsListTableViewCell.swift */,
 				71E10F1F1B56E9970009A0E6 /* Supporting Files */,
+				71DFAB301B630E1E0051D5A9 /* ShareExtension-Bridging-Header.h */,
 			);
 			path = ShareExtension;
 			sourceTree = "<group>";
@@ -469,9 +498,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 71E10F281B56E9970009A0E6 /* Build configuration list for PBXNativeTarget "ShareExtension" */;
 			buildPhases = (
+				5D5B6FF9E5A2389CFF873629 /* Check Pods Manifest.lock */,
 				71E10F191B56E9970009A0E6 /* Sources */,
 				71E10F1A1B56E9970009A0E6 /* Frameworks */,
 				71E10F1B1B56E9970009A0E6 /* Resources */,
+				61EC16B44AF6BA6F2AFD5FA1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -636,6 +667,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TemplateProject/Pods-TemplateProject-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5D5B6FF9E5A2389CFF873629 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		61EC16B44AF6BA6F2AFD5FA1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShareExtension/Pods-ShareExtension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		910478B35EDACEDCAACC6B9C /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -679,9 +740,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				710BBCB01B61BDDD00163E1E /* FriendsListViewController.swift in Sources */,
-				710BBCB81B61BE7900163E1E /* FriendsListTableViewCell.swift in Sources */,
-				71E10F221B56E9970009A0E6 /* ShareViewController.swift in Sources */,
+				71DFAB2C1B62E0300051D5A9 /* FBUser.swift in Sources */,
+				71DFAB531B66AAE60051D5A9 /* FriendsListViewController.swift in Sources */,
+				71DFAB541B66AAE60051D5A9 /* ShareViewController.swift in Sources */,
+				71DFAB501B66AADB0051D5A9 /* FriendsListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -849,7 +911,9 @@
 		};
 		71E10F291B56E9970009A0E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67A12CAA8732AA953F28CFD7 /* Pods-ShareExtension.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -860,24 +924,37 @@
 				INFOPLIST_FILE = ShareExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ShareExtension/ShareExtension-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		71E10F2A1B56E9970009A0E6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAD65D61CDEF181A399E5C91 /* Pods-ShareExtension.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ShareExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ShareExtension/ShareExtension-Bridging-Header.h";
 			};
 			name = Release;
 		};

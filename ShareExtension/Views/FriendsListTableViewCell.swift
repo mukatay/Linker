@@ -8,12 +8,11 @@
 
 import UIKit
 
-class FriendListTableViewCell: UITableViewCell {
+class FriendsListTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var friendPicture: UIImageView!
-    
-    @IBOutlet weak var friendUsername: UILabel!
-    
+    @IBOutlet weak var friendListPicture: UIImageView!
+
+    @IBOutlet weak var friendListUsername: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
