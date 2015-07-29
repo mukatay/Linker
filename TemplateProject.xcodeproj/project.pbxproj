@@ -51,6 +51,9 @@
 		71DFAB541B66AAE60051D5A9 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DFAB521B66AAE60051D5A9 /* ShareViewController.swift */; };
 		71E10F241B56E9970009A0E6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71E10F231B56E9970009A0E6 /* MainInterface.storyboard */; };
 		71E10F271B56E9970009A0E6 /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 71E10F1D1B56E9970009A0E6 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		71E2009E1B6818F5004A3B92 /* SelectedFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E2009D1B6818F5004A3B92 /* SelectedFriendTableViewCell.swift */; };
+		71E200A61B681EA1004A3B92 /* SharingContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E200A51B681EA1004A3B92 /* SharingContentTableViewCell.swift */; };
+		71E200AC1B6835E2004A3B92 /* ShowFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E200AB1B6835E2004A3B92 /* ShowFriendsTableViewCell.swift */; };
 		EED53DF8D8233A7D2D92796D /* libPods-ShareExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B38B478D0424D4A2A5325F /* libPods-ShareExtension.a */; };
 /* End PBXBuildFile section */
 
@@ -211,6 +214,9 @@
 		71E10F201B56E9970009A0E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71E10F231B56E9970009A0E6 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		71E10F2C1B5705720009A0E6 /* ShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ShareExtension.entitlements; sourceTree = "<group>"; };
+		71E2009D1B6818F5004A3B92 /* SelectedFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectedFriendTableViewCell.swift; path = Views/SelectedFriendTableViewCell.swift; sourceTree = "<group>"; };
+		71E200A51B681EA1004A3B92 /* SharingContentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharingContentTableViewCell.swift; path = Views/SharingContentTableViewCell.swift; sourceTree = "<group>"; };
+		71E200AB1B6835E2004A3B92 /* ShowFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowFriendsTableViewCell.swift; path = Views/ShowFriendsTableViewCell.swift; sourceTree = "<group>"; };
 		A2B38B478D0424D4A2A5325F /* libPods-ShareExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShareExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF2E83DEC7BB934B93C4D67 /* Pods-TemplateProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TemplateProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TemplateProject/Pods-TemplateProject.debug.xcconfig"; sourceTree = "<group>"; };
 		BAD65D61CDEF181A399E5C91 /* Pods-ShareExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShareExtension/Pods-ShareExtension.release.xcconfig"; sourceTree = "<group>"; };
@@ -442,6 +448,9 @@
 			isa = PBXGroup;
 			children = (
 				71DFAB4F1B66AADB0051D5A9 /* FriendsListTableViewCell.swift */,
+				71E2009D1B6818F5004A3B92 /* SelectedFriendTableViewCell.swift */,
+				71E200A51B681EA1004A3B92 /* SharingContentTableViewCell.swift */,
+				71E200AB1B6835E2004A3B92 /* ShowFriendsTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -740,8 +749,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71E200AC1B6835E2004A3B92 /* ShowFriendsTableViewCell.swift in Sources */,
+				71E200A61B681EA1004A3B92 /* SharingContentTableViewCell.swift in Sources */,
 				71DFAB2C1B62E0300051D5A9 /* FBUser.swift in Sources */,
 				71DFAB531B66AAE60051D5A9 /* FriendsListViewController.swift in Sources */,
+				71E2009E1B6818F5004A3B92 /* SelectedFriendTableViewCell.swift in Sources */,
 				71DFAB541B66AAE60051D5A9 /* ShareViewController.swift in Sources */,
 				71DFAB501B66AADB0051D5A9 /* FriendsListTableViewCell.swift in Sources */,
 			);

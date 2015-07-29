@@ -9,38 +9,21 @@
 import UIKit
 import Social
 import CoreGraphics
-import MobileCoreServices
 
-
-class ShareViewController: UITableViewController {
-
-    @IBOutlet weak var titleLabel: UILabel!
+class ShareViewController: UIViewController{
     
-    @IBOutlet weak var imageView: UIImageView!
-    
-    @IBOutlet weak var commentTextField: UITextField!
-    
-    @IBOutlet weak var friendsTextField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
     
     func isContentValid() -> Bool {
         // Do validation of contentText and/or NSExtensionContext attachments here
         return true
     }
     
-    @IBOutlet weak var friendsTableViewCell: UITableViewCell!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.dataSource = self
         
-        friendsTableViewCell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        
-        var input = self.extensionContext?.inputItems.first as! NSExtensionItem
-        var title = input.attributedContentText
-        
-        titleLabel.lineBreakMode = .ByWordWrapping
-        titleLabel.numberOfLines = 0
-        titleLabel.text = title?.string
-        titleLabel.sizeToFit()
     }
     
     @IBAction func shareButton(sender: UIBarButtonItem) {
@@ -65,3 +48,37 @@ class ShareViewController: UITableViewController {
         
     }
 }
+extension ShareViewController: UITableViewDataSource {
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return 3
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("MainCell", forIndexPath: indexPath) as! SharingContentTableViewCell
+            
+            var input = self.extensionContext?.inputItems.first as! NSExtensionItem
+            var title = input.attributedContentText
+            
+            cell.linkTitle.lineBreakMode = .ByWordWrapping
+            cell.linkTitle.numberOfLines = 0
+            cell.linkTitle.text = title?.string
+            cell.linkTitle.sizeToFit()
+            
+            return cell
+        } else if indexPath.row == 1 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("ShowFriendsCell", forIndexPath: indexPath) as! ShowFriendsTableViewCell
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            
+            return cell
+        } else { // if indexPath.row == 2 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("SelectedFriendCell", forIndexPath: indexPath) as! SelectedFriendTableViewCell
+            
+            return cell
+        }
+        
+    }
+}
+
+

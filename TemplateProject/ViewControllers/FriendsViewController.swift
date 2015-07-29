@@ -18,14 +18,13 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var checked = [NSIndexPath: Bool]()
-    
+    var checked = [String: Bool]()
     var searchActive : Bool = false
     var filtered:[FBUser] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.dataSource = self
         tableView.delegate =  self
         searchBar.delegate = self
@@ -35,7 +34,7 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
         FBSDKGraphRequest(graphPath: "/me/taggable_friends", parameters: ["limit" : "180"], HTTPMethod: "GET").startWithCompletionHandler { (connection: FBSDKGraphRequestConnection!, result: AnyObject?, error: NSError?) -> Void in
             if error == nil {
                 if let data = result?["data"] as? [[String: AnyObject]] {
-//                    println("Friends are : \(data)")
+                    //                    println("Friends are : \(data)")
                     NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.setObject(data, forKey: "FBData")
                     NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.synchronize()
                     
@@ -85,33 +84,27 @@ extension FriendsViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("FriendCell", forIndexPath: indexPath) as! FriendTableViewCell
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
         
+        var friend = friendsData[indexPath.row]
         if(searchActive){
-            cell.friendUsername.text = filtered[indexPath.row].username
-            if let urlString = filtered[indexPath.row].profilePic, url = NSURL(string: urlString) {
-                cell.friendPicture.layer.masksToBounds = true;
-                cell.friendPicture.layer.cornerRadius = cell.friendPicture.frame.height/2;
-                cell.friendPicture.sd_setImageWithURL(url)
-//              profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NAME"))
-            }
-        }else {
-            
-            let friend = friendsData[indexPath.row]
+            friend = filtered[indexPath.row]
+        }
         
-            cell.friendUsername.text = friend.username
-            cell.accessoryType = UITableViewCellAccessoryType.None
+        cell.friendUsername.text = friend.username
+        cell.accessoryType = UITableViewCellAccessoryType.None
         
-            if checked[indexPath] == true {
+        if checked[friend.username] == true {
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-            }
-            
-            if let urlString = friend.profilePic, url = NSURL(string: urlString) {
-                cell.friendPicture.layer.masksToBounds = true;
-                cell.friendPicture.layer.cornerRadius = cell.friendPicture.frame.height/2;
-                cell.friendPicture.sd_setImageWithURL(url)
-//              profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NAME"))
-            }
+        }
+        
+        if let urlString = friend.profilePic, url = NSURL(string: urlString) {
+            cell.friendPicture.layer.masksToBounds = true;
+            cell.friendPicture.layer.cornerRadius = cell.friendPicture.frame.height/2;
+            cell.friendPicture.sd_setImageWithURL(url)
+//          profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NAME"))
         }
         return cell
     }
@@ -120,23 +113,29 @@ extension FriendsViewController: UITableViewDataSource {
 extension FriendsViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! FriendTableViewCell
-        checked[indexPath] = true
-        cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-    }
-
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! FriendTableViewCell
-        checked[indexPath] = nil
-        cell.accessoryType = UITableViewCellAccessoryType.None
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        
+        if searchActive {
+            let isChecked = checked[filtered[indexPath.row].username] ?? false
+            checked[filtered[indexPath.row].username] = !isChecked
+        } else {
+            let isChecked = checked[friendsData[indexPath.row].username] ?? false
+            checked[friendsData[indexPath.row].username] = !isChecked
+        }
+        
+        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
     }
     
-    private func getSelectedUsers() {
-        for indexPath in checked.keys {
-            let user = friendsData[indexPath.row]
-            
-            // Do whatever you want
+    private func getSelectedUsers()->[FBUser] {
+        
+        var selectedUsers : [FBUser] = []
+        for friend in friendsData {
+            if checked[friend.username] == true {
+                selectedUsers.append(friend)
+            }
         }
+        return selectedUsers
     }
 }
 
@@ -166,5 +165,4 @@ extension FriendsViewController: UISearchBarDelegate {
         }
         self.tableView.reloadData()
     }
-    
 }
