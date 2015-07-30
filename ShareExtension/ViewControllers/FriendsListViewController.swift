@@ -20,6 +20,7 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UITabl
     var checked = [String: Bool]()
     var searchActive : Bool = false
     var filtered:[FBUser] = []
+    var selectedUsers : [FBUser] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +28,11 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.dataSource = self
         tableView.delegate =  self
         searchBar.delegate = self
-        
+        selectedUsers = []
         self.tableView.allowsMultipleSelection = true
         
         if let fbData = NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")!.objectForKey("FBData") as? [AnyObject] {
-            //            println("FBFriends are: \(fbData)")
+//            println("FBFriends are: \(fbData)")
             
             for object in fbData {
                 if let username = object["name"] as? String, id = object["id"] as? String {
@@ -43,8 +44,11 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UITabl
                 }
             }
             self.tableView.reloadData()
+           
         }
     }
+
+
 }
 
 extension FriendsListViewController: UITableViewDataSource {
@@ -68,8 +72,9 @@ extension FriendsListViewController: UITableViewDataSource {
         }
         
         cell.friendListUsername.text = friend.username
-        cell.accessoryType = UITableViewCellAccessoryType.None
         
+        cell.accessoryType = UITableViewCellAccessoryType.None
+
         if checked[friend.username] == true {
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark
         }
@@ -78,7 +83,7 @@ extension FriendsListViewController: UITableViewDataSource {
             cell.friendListPicture.layer.masksToBounds = true;
             cell.friendListPicture.layer.cornerRadius = cell.friendListPicture.frame.height/2;
             cell.friendListPicture.sd_setImageWithURL(url)
-            //          profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NAME"))
+//          profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NAME"))
         }
         return cell
     }
@@ -101,16 +106,16 @@ extension FriendsListViewController: UITableViewDelegate {
         tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
     }
     
-    private func getSelectedUsers()->[FBUser] {
-        
-        var selectedUsers : [FBUser] = []
+    func getSelectedUsers()->[FBUser] {
         for friend in friendsData {
             if checked[friend.username] == true {
                 selectedUsers.append(friend)
             }
         }
+        
         return selectedUsers
     }
+    
 }
 
 extension FriendsListViewController: UISearchBarDelegate {

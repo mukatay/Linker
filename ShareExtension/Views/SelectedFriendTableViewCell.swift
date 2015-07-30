@@ -14,7 +14,6 @@ class SelectedFriendTableViewCell: UITableViewCell {
 
     @IBOutlet weak var friendUsername: UILabel!
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

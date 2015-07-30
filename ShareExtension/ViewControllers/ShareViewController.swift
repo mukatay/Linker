@@ -14,6 +14,13 @@ class ShareViewController: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
     
+    var friendsArray: [FBUser]
+    
+    required init(coder aDecoder: NSCoder) {
+        self.friendsArray = []
+        super.init(coder: aDecoder)
+
+    }
     func isContentValid() -> Bool {
         // Do validation of contentText and/or NSExtensionContext attachments here
         return true
@@ -21,9 +28,9 @@ class ShareViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.dataSource = self
         
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
     @IBAction func shareButton(sender: UIBarButtonItem) {
@@ -47,17 +54,36 @@ class ShareViewController: UIViewController{
         return []
         
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "show") {
+            
+            let friendListViewController = segue.destinationViewController as! FriendsListViewController
+            var checked : [String : Bool] = [String : Bool]()
+            for user in self.friendsArray {
+                checked[user.username] = true
+            }
+            friendListViewController.checked = checked
+        }
+    }
+    
+    @IBAction func unwindToSegue(segue: UIStoryboardSegue){
+        if (segue.identifier == "done") {
+            let friendListViewController = segue.sourceViewController as! FriendsListViewController
+            self.friendsArray = friendListViewController.getSelectedUsers()
+            self.tableView.reloadData()
+        }
+    }
 }
-extension ShareViewController: UITableViewDataSource {
+extension ShareViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 3
+            return 2 + friendsArray.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("MainCell", forIndexPath: indexPath) as! SharingContentTableViewCell
-            
             var input = self.extensionContext?.inputItems.first as! NSExtensionItem
             var title = input.attributedContentText
             
@@ -72,12 +98,44 @@ extension ShareViewController: UITableViewDataSource {
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
             
             return cell
-        } else { // if indexPath.row == 2 {
+        } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("SelectedFriendCell", forIndexPath: indexPath) as! SelectedFriendTableViewCell
+            var friend = friendsArray[indexPath.row - 2]
             
+            cell.friendUsername.text = friend.username
+
+            if let urlString = friend.profilePic, url = NSURL(string: urlString) {
+                cell.friendProfilePic.layer.masksToBounds = true;
+                cell.friendProfilePic.layer.cornerRadius = cell.friendProfilePic.frame.height/2;
+                cell.friendProfilePic.sd_setImageWithURL(url)
+//          profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NAME"))
+                
+               
+                
+            }
             return cell
         }
-        
+    }
+    
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 174
+        } else {
+            return 44
+        }
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            self.friendsArray.removeAtIndex(indexPath.row - 2)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+             tableView.reloadData()
+        }
     }
 }
 
