@@ -21,13 +21,14 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UITabl
     var searchActive : Bool = false
     var filtered:[FBUser] = []
     var selectedUsers : [FBUser] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate =  self
         searchBar.delegate = self
+
         selectedUsers = []
         self.tableView.allowsMultipleSelection = true
         
@@ -44,11 +45,8 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UITabl
                 }
             }
             self.tableView.reloadData()
-           
         }
     }
-
-
 }
 
 extension FriendsListViewController: UITableViewDataSource {
@@ -112,10 +110,8 @@ extension FriendsListViewController: UITableViewDelegate {
                 selectedUsers.append(friend)
             }
         }
-        
         return selectedUsers
     }
-    
 }
 
 extension FriendsListViewController: UISearchBarDelegate {

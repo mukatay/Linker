@@ -34,7 +34,7 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
         FBSDKGraphRequest(graphPath: "/me/taggable_friends", parameters: ["limit" : "180"], HTTPMethod: "GET").startWithCompletionHandler { (connection: FBSDKGraphRequestConnection!, result: AnyObject?, error: NSError?) -> Void in
             if error == nil {
                 if let data = result?["data"] as? [[String: AnyObject]] {
-                    //                    println("Friends are : \(data)")
+//                    println("Friends are : \(data)")
                     NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.setObject(data, forKey: "FBData")
                     NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.synchronize()
                     

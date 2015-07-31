@@ -6,4 +6,5 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-
+#import <FBSDKShareKit/FBSDKShareOpenGraphObject.h>
+#import <FBSDKShareKit/FBSDKSharing.h>

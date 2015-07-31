@@ -124,7 +124,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Friends" id="ETO-Mg-fOc">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="H8G-hu-RQo"/>
                         <barButtonItem key="rightBarButtonItem" title="Create group" id="Pmc-Mf-8vs"/>
                     </navigationItem>
                     <connections>
@@ -279,7 +278,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="sv2-lo-MJ8">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="st5-zr-odw">
                                     <rect key="frame" x="0.0" y="64" width="600" height="207"/>
@@ -366,10 +365,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="sv2-lo-MJ8" secondAttribute="trailing" id="j2y-iz-63A"/>
-                            <constraint firstAttribute="bottom" secondItem="sv2-lo-MJ8" secondAttribute="bottom" id="t2n-rR-OYp"/>
-                            <constraint firstItem="sv2-lo-MJ8" firstAttribute="top" secondItem="0Fu-WD-51Q" secondAttribute="top" id="teG-fX-HAh"/>
-                            <constraint firstItem="sv2-lo-MJ8" firstAttribute="leading" secondItem="0Fu-WD-51Q" secondAttribute="leading" id="yMP-Pg-FmL"/>
+                            <constraint firstItem="sv2-lo-MJ8" firstAttribute="leading" secondItem="0Fu-WD-51Q" secondAttribute="leading" id="0bj-je-7XB"/>
+                            <constraint firstItem="CS9-Z4-hPO" firstAttribute="top" secondItem="sv2-lo-MJ8" secondAttribute="bottom" id="2p2-c0-v47"/>
+                            <constraint firstItem="sv2-lo-MJ8" firstAttribute="top" secondItem="0Fu-WD-51Q" secondAttribute="top" id="6V8-5p-u0t"/>
+                            <constraint firstAttribute="trailing" secondItem="sv2-lo-MJ8" secondAttribute="trailing" id="zVl-b3-tVE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Profile" id="6Rj-du-jbF">

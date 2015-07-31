@@ -54,6 +54,9 @@
 		71E2009E1B6818F5004A3B92 /* SelectedFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E2009D1B6818F5004A3B92 /* SelectedFriendTableViewCell.swift */; };
 		71E200A61B681EA1004A3B92 /* SharingContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E200A51B681EA1004A3B92 /* SharingContentTableViewCell.swift */; };
 		71E200AC1B6835E2004A3B92 /* ShowFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E200AB1B6835E2004A3B92 /* ShowFriendsTableViewCell.swift */; };
+		71E200BE1B6AAE35004A3B92 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B661B06BF6D000913E4 /* FBSDKShareKit.framework */; };
+		71E200C51B6AAE42004A3B92 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B641B06BF6D000913E4 /* FBSDKCoreKit.framework */; };
+		71E200C61B6AC1D5004A3B92 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B651B06BF6D000913E4 /* FBSDKLoginKit.framework */; };
 		EED53DF8D8233A7D2D92796D /* libPods-ShareExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B38B478D0424D4A2A5325F /* libPods-ShareExtension.a */; };
 /* End PBXBuildFile section */
 
@@ -255,6 +258,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71E200BE1B6AAE35004A3B92 /* FBSDKShareKit.framework in Frameworks */,
+				71E200C51B6AAE42004A3B92 /* FBSDKCoreKit.framework in Frameworks */,
+				71E200C61B6AC1D5004A3B92 /* FBSDKLoginKit.framework in Frameworks */,
 				EED53DF8D8233A7D2D92796D /* libPods-ShareExtension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -929,6 +935,10 @@
 				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -956,6 +966,10 @@
 				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = ShareExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";

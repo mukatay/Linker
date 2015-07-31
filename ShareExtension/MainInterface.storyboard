@@ -148,15 +148,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="xbE-dW-g3g" secondAttribute="trailing" id="9eK-KI-B1Q"/>
-                            <constraint firstItem="acZ-k5-K4J" firstAttribute="top" secondItem="xbE-dW-g3g" secondAttribute="bottom" id="GGH-OJ-c6r"/>
-                            <constraint firstItem="xbE-dW-g3g" firstAttribute="leading" secondItem="VgS-wn-yej" secondAttribute="leading" id="GX1-Ox-LjP"/>
-                            <constraint firstItem="xbE-dW-g3g" firstAttribute="top" secondItem="VgS-wn-yej" secondAttribute="top" id="iB6-rj-k0p"/>
+                            <constraint firstItem="acZ-k5-K4J" firstAttribute="top" secondItem="xbE-dW-g3g" secondAttribute="bottom" id="37Y-kL-mTm"/>
+                            <constraint firstItem="xbE-dW-g3g" firstAttribute="leading" secondItem="VgS-wn-yej" secondAttribute="leading" id="3qZ-8O-Zhb"/>
+                            <constraint firstItem="xbE-dW-g3g" firstAttribute="top" secondItem="VgS-wn-yej" secondAttribute="top" id="bKG-cE-9Et"/>
+                            <constraint firstAttribute="trailing" secondItem="xbE-dW-g3g" secondAttribute="trailing" id="jMu-4M-FnK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="now-Gh-FKe">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="pTG-1e-Pcv"/>
-                        <barButtonItem key="rightBarButtonItem" title="Share" id="Hde-1x-WsE"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="pTG-1e-Pcv">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="fKj-tj-QhL" id="vJA-aL-663"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="Hde-1x-WsE">
+                            <connections>
+                                <action selector="shareButton:" destination="fKj-tj-QhL" id="I0H-Np-yCx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="xbE-dW-g3g" id="KFa-B1-Jcb"/>
@@ -228,13 +236,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ifA-Cc-kCz" secondAttribute="trailing" id="2VC-A6-X6O"/>
                             <constraint firstItem="ifA-Cc-kCz" firstAttribute="top" secondItem="CiS-QF-zbE" secondAttribute="top" id="VNp-DD-gFX"/>
-                            <constraint firstAttribute="bottom" secondItem="ifA-Cc-kCz" secondAttribute="bottom" id="XFR-tG-gHo"/>
                             <constraint firstItem="ifA-Cc-kCz" firstAttribute="leading" secondItem="CiS-QF-zbE" secondAttribute="leading" id="bpS-9b-c5z"/>
-                            <constraint firstItem="ifA-Cc-kCz" firstAttribute="top" secondItem="CiS-QF-zbE" secondAttribute="top" id="dML-Ki-Fu8"/>
                             <constraint firstItem="4lm-Ud-Ubh" firstAttribute="top" secondItem="ifA-Cc-kCz" secondAttribute="bottom" id="hBf-A8-vXV"/>
-                            <constraint firstItem="ifA-Cc-kCz" firstAttribute="leading" secondItem="CiS-QF-zbE" secondAttribute="leading" id="ih3-7n-W3K"/>
                             <constraint firstAttribute="trailing" secondItem="ifA-Cc-kCz" secondAttribute="trailing" id="tb0-zk-IJH"/>
                         </constraints>
                     </view>
