@@ -9,17 +9,18 @@
 import UIKit
 import Social
 import CoreGraphics
+import ParseFacebookUtils
 
 class ShareViewController: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
     
     var friendsArray: [FBUser]
-    
+    var friendsFbId: [String]
     required init(coder aDecoder: NSCoder) {
         self.friendsArray = []
+        self.friendsFbId = []
         super.init(coder: aDecoder)
-
     }
     func isContentValid() -> Bool {
         // Do validation of contentText and/or NSExtensionContext attachments here
@@ -28,7 +29,7 @@ class ShareViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -38,43 +39,39 @@ class ShareViewController: UIViewController{
         var itemProvider = input.attachments?.first as! NSItemProvider
         itemProvider.loadItemForTypeIdentifier("public.url", options: nil) { obj, error -> Void in
             
-        let url = obj as! NSURL
-        println("URL: \(url.absoluteString)")
+            let url = obj as! NSURL
+            println("URL: \(url.absoluteString)")
             
-        var properties = [
-            "og:url": "https://www.makeschool.com"
-        ]
-        
-  //          if FBSDKAccessToken.currentAccessToken().hasGranted("publish_actions") {
-                
-                let object = FBSDKShareOpenGraphObject(properties: properties)
-                let action = FBSDKShareOpenGraphAction()
-                action.actionType = "news.publishes"
-                action.setObject(object, forKey: "news.read")
-                
-                let content = FBSDKShareOpenGraphContent()
-                content.action = action
-                for index in 0...self.friendsArray.count - 1 {
-                    println("Hello \(self.friendsArray[index].fbId)) " + " --- ")
-                    let id = self.friendsArray[index].fbId
-                        content.peopleIDs.append(id)
-                }
-                action.setObject(object, forKey: "news.read")
-                
-                FBSDKShareAPI.shareWithContent(content, delegate: nil)
-           
-  //          } else {
-                let loginManager = FBSDKLoginManager()
-                loginManager.logInWithPublishPermissions(["publish_actions"], handler: { (result: FBSDKLoginManagerLoginResult!, error: NSError!) -> Void in
-                    println("Result: \(result)")
-                    if let sender = sender as? ShareViewController {
-                        self.shareButton(self)
+            var properties = [
+                "og:url": url.absoluteString!
+            ]
+            
+            
+            
+            if FBSDKAccessToken.currentAccessToken() != nil {
+                if(FBSDKAccessToken.currentAccessToken().hasGranted("publish_actions")){
+                    
+                    let object = FBSDKShareOpenGraphObject(properties: properties)
+                    let action = FBSDKShareOpenGraphAction()
+                    action.actionType = "news.publishes"
+                    action.setObject(object, forKey: "news.read")
+                    
+                    let content = FBSDKShareOpenGraphContent()
+                    content.action = action
+                    for  var index = 0; index < self.friendsArray.count; index++ {
+                        let id = self.friendsArray[index].fbId
+                        self.friendsFbId.append(id)
                     }
-                })
-   //             }
+                    content.peopleIDs = self.friendsFbId
+                    action.setObject(object, forKey: "news.read")
+                    
+                    FBSDKShareAPI.shareWithContent(content, delegate: nil)
+                }
+                
             }
+        }
     }
-
+    
     @IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -107,7 +104,7 @@ class ShareViewController: UIViewController{
 extension ShareViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 2 + friendsArray.count
+        return 2 + friendsArray.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -131,12 +128,12 @@ extension ShareViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCellWithIdentifier("SelectedFriendCell", forIndexPath: indexPath) as! SelectedFriendTableViewCell
             var friend = friendsArray[indexPath.row - 2]
             cell.friendUsername.text = friend.username
-
+            
             if let urlString = friend.profilePic, url = NSURL(string: urlString) {
                 cell.friendProfilePic.layer.masksToBounds = true;
                 cell.friendProfilePic.layer.cornerRadius = cell.friendProfilePic.frame.height/2;
                 cell.friendProfilePic.sd_setImageWithURL(url)
-//          profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NAME"))
+                //          profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NAME"))
             }
             return cell
         }
@@ -159,7 +156,7 @@ extension ShareViewController: UITableViewDataSource, UITableViewDelegate {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             self.friendsArray.removeAtIndex(indexPath.row - 2)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-             tableView.reloadData()
+            tableView.reloadData()
         }
     }
 }
