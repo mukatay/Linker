@@ -36,16 +36,6 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wua-Nr-Nia">
-                                                    <rect key="frame" x="8" y="12" width="180" height="65"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="180" id="lOD-Ja-GFy"/>
-                                                        <constraint firstAttribute="height" constant="65" id="nDH-5N-AKo"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Rl-dV-ADk">
                                                     <rect key="frame" x="98" y="120" width="195" height="30"/>
                                                     <constraints>
@@ -60,6 +50,16 @@
                                                         <constraint firstAttribute="width" constant="80" id="Uhk-zx-60I"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wua-Nr-Nia">
+                                                    <rect key="frame" x="8" y="12" width="180" height="65"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="180" id="lOD-Ja-GFy"/>
+                                                        <constraint firstAttribute="height" constant="65" id="nDH-5N-AKo"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="0Rl-dV-ADk" firstAttribute="leading" secondItem="51M-1A-uUC" secondAttribute="leading" constant="98" id="4wp-RW-PRS"/>

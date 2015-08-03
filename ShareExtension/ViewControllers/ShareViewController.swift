@@ -9,7 +9,7 @@
 import UIKit
 import Social
 import CoreGraphics
-import ParseFacebookUtils
+import Parse
 
 class ShareViewController: UIViewController{
     
@@ -17,11 +17,13 @@ class ShareViewController: UIViewController{
     
     var friendsArray: [FBUser]
     var friendsFbId: [String]
+    
     required init(coder aDecoder: NSCoder) {
         self.friendsArray = []
         self.friendsFbId = []
         super.init(coder: aDecoder)
     }
+    
     func isContentValid() -> Bool {
         // Do validation of contentText and/or NSExtensionContext attachments here
         return true
@@ -29,6 +31,13 @@ class ShareViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+ 
+        if(!Parse.isLocalDatastoreEnabled()){
+            Parse.enableLocalDatastore()
+            Parse.enableDataSharingWithApplicationGroupIdentifier("group.mukatay.TestShareDefaults", containingApplication: "Make-School.TemplateProject.ShareExtension")
+            Parse.setApplicationId("ErcD8FgZDmstg9zQfZ2HVCrJ1JwXFWPCdFZerCgJ", clientKey: "bybCVI9UELUynBuJqSWPxNxTJ3AeFJM1zA9oYVF4")
+            PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(nil)
+        }
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -45,9 +54,7 @@ class ShareViewController: UIViewController{
             var properties = [
                 "og:url": url.absoluteString!
             ]
-            
-            
-            
+        
             if FBSDKAccessToken.currentAccessToken() != nil {
                 if(FBSDKAccessToken.currentAccessToken().hasGranted("publish_actions")){
                     
@@ -67,7 +74,15 @@ class ShareViewController: UIViewController{
                     
                     FBSDKShareAPI.shareWithContent(content, delegate: nil)
                 }
+            } else {
                 
+                PFFacebookUtils.linkUserInBackground(PFUser.currentUser()!, withPublishPermissions: ["publish_actions"], block: { (success, error) -> Void in
+                    println("linked user. token: \(FBSDKAccessToken.currentAccessToken())")
+                })
+//                let loginManager = FBSDKLoginManager()
+//                loginManager.logInWithPublishPermissions(["publish_actions"], handler: { (result, error) -> Void in
+//                    println("\(result) + \(error)")
+//                })
             }
         }
     }
@@ -133,7 +148,7 @@ extension ShareViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.friendProfilePic.layer.masksToBounds = true;
                 cell.friendProfilePic.layer.cornerRadius = cell.friendProfilePic.frame.height/2;
                 cell.friendProfilePic.sd_setImageWithURL(url)
-                //          profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NAME"))
+//              profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NAME"))
             }
             return cell
         }

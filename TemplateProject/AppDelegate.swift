@@ -8,8 +8,9 @@
 
 import UIKit
 import FBSDKCoreKit
-import Parse
 import ParseUI
+import Parse
+import Bolts
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,12 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
   }
-    
+
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    
+
+    Parse.enableDataSharingWithApplicationGroupIdentifier("group.mukatay.TestShareDefaults")
     Parse.setApplicationId("ErcD8FgZDmstg9zQfZ2HVCrJ1JwXFWPCdFZerCgJ", clientKey: "bybCVI9UELUynBuJqSWPxNxTJ3AeFJM1zA9oYVF4")
-  
-    PFUser.enableRevocableSessionInBackground()
     
     let acl = PFACL()
     acl.setPublicReadAccess(true)
@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         startViewController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
     } else {
         let loginViewController = PFLogInViewController()
-        loginViewController.facebookPermissions = ["public_profile", "email", "user_friends", "publish_actions"]
+        loginViewController.facebookPermissions = ["public_profile", "email", "user_friends"]
         loginViewController.fields = .UsernameAndPassword | .LogInButton | .SignUpButton | .PasswordForgotten | .Facebook
         loginViewController.delegate = parseLoginHelper
         loginViewController.signUpController?.delegate = parseLoginHelper

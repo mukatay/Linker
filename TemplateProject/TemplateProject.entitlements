@@ -6,5 +6,9 @@
 	<array>
 		<string>group.mukatay.TestShareDefaults</string>
 	</array>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>$(AppIdentifierPrefix)Make-School.TemplateProject</string>
+	</array>
 </dict>
 </plist>

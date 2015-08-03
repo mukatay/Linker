@@ -5,3 +5,5 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
+#import <Parse/Parse.h>
