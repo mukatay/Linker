@@ -37,6 +37,23 @@ class ShareViewController: UIViewController{
             Parse.enableDataSharingWithApplicationGroupIdentifier("group.mukatay.TestShareDefaults", containingApplication: "Make-School.TemplateProject.ShareExtension")
             Parse.setApplicationId("ErcD8FgZDmstg9zQfZ2HVCrJ1JwXFWPCdFZerCgJ", clientKey: "bybCVI9UELUynBuJqSWPxNxTJ3AeFJM1zA9oYVF4")
             PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(nil)
+
+            if let serializedAccessToken = NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.objectForKey("FacebookAccessToken") as? NSData
+            {
+                if let accessToken = NSKeyedUnarchiver.unarchiveObjectWithData(serializedAccessToken) as? FBSDKAccessToken
+                {
+                    if let user = PFUser.currentUser()
+                    {
+                        PFFacebookUtils.linkUserInBackground(user, withAccessToken: accessToken, block: { (success, error) -> Void in
+                            if success {
+                                println("Facebook session was linked to Parse user in extension")
+                            } else {
+                                println("Failed to link Facebook session to Parse user because: \(error)")
+                            }
+                        })
+                    }
+                }
+            }
         }
         
         tableView.dataSource = self
@@ -49,7 +66,6 @@ class ShareViewController: UIViewController{
         itemProvider.loadItemForTypeIdentifier("public.url", options: nil) { obj, error -> Void in
             
             let url = obj as! NSURL
-            println("URL: \(url.absoluteString)")
             
             var properties = [
                 "og:url": url.absoluteString!
@@ -71,18 +87,14 @@ class ShareViewController: UIViewController{
                     }
                     content.peopleIDs = self.friendsFbId
                     action.setObject(object, forKey: "news.read")
-                    
                     FBSDKShareAPI.shareWithContent(content, delegate: nil)
                 }
             } else {
-                
                 PFFacebookUtils.linkUserInBackground(PFUser.currentUser()!, withPublishPermissions: ["publish_actions"], block: { (success, error) -> Void in
-                    println("linked user. token: \(FBSDKAccessToken.currentAccessToken())")
+                    if success {
+                        println("User linked withPublishPermissions")
+                    }
                 })
-//                let loginManager = FBSDKLoginManager()
-//                loginManager.logInWithPublishPermissions(["publish_actions"], handler: { (result, error) -> Void in
-//                    println("\(result) + \(error)")
-//                })
             }
         }
     }
