@@ -44,6 +44,11 @@ class ProfileViewController: UIViewController {
 //            profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NAME"))
         }
     }
+    
+    @IBAction func logOutTapped(sender: UIBarButtonItem) {
+        PFFacebookUtils.unlinkUserInBackground(PFUser.currentUser()!)
+        PFUser.logOut()
+    }
 }
 
 extension ProfileViewController: UITableViewDataSource {

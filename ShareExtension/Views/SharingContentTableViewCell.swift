@@ -14,9 +14,6 @@ class SharingContentTableViewCell: UITableViewCell {
     
     @IBOutlet weak var linkImage: UIImageView!
     
-    @IBOutlet weak var commentTextField: UITextField!
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

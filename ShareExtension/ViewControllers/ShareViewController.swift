@@ -14,7 +14,7 @@ import Parse
 class ShareViewController: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
-    
+
     var friendsArray: [FBUser]
     var friendsFbId: [String]
     
@@ -37,23 +37,6 @@ class ShareViewController: UIViewController{
             Parse.enableDataSharingWithApplicationGroupIdentifier("group.mukatay.TestShareDefaults", containingApplication: "Make-School.TemplateProject.ShareExtension")
             Parse.setApplicationId("ErcD8FgZDmstg9zQfZ2HVCrJ1JwXFWPCdFZerCgJ", clientKey: "bybCVI9UELUynBuJqSWPxNxTJ3AeFJM1zA9oYVF4")
             PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(nil)
-
-            if let serializedAccessToken = NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.objectForKey("FacebookAccessToken") as? NSData
-            {
-                if let accessToken = NSKeyedUnarchiver.unarchiveObjectWithData(serializedAccessToken) as? FBSDKAccessToken
-                {
-                    if let user = PFUser.currentUser()
-                    {
-                        PFFacebookUtils.linkUserInBackground(user, withAccessToken: accessToken, block: { (success, error) -> Void in
-                            if success {
-                                println("Facebook session was linked to Parse user in extension")
-                            } else {
-                                println("Failed to link Facebook session to Parse user because: \(error)")
-                            }
-                        })
-                    }
-                }
-            }
         }
         
         tableView.dataSource = self
@@ -64,43 +47,58 @@ class ShareViewController: UIViewController{
         var input = self.extensionContext?.inputItems.first as! NSExtensionItem
         var itemProvider = input.attachments?.first as! NSItemProvider
         itemProvider.loadItemForTypeIdentifier("public.url", options: nil) { obj, error -> Void in
+        var input = self.extensionContext?.inputItems.first as! NSExtensionItem
+        var title = input.attributedContentText
             
-            let url = obj as! NSURL
-            
-            var properties = [
-                "og:url": url.absoluteString!
-            ]
-        
-            if FBSDKAccessToken.currentAccessToken() != nil {
-                if(FBSDKAccessToken.currentAccessToken().hasGranted("publish_actions")){
-                    
-                    let object = FBSDKShareOpenGraphObject(properties: properties)
-                    let action = FBSDKShareOpenGraphAction()
-                    action.actionType = "news.publishes"
-                    action.setObject(object, forKey: "news.read")
-                    
-                    let content = FBSDKShareOpenGraphContent()
-                    content.action = action
-                    for  var index = 0; index < self.friendsArray.count; index++ {
-                        let id = self.friendsArray[index].fbId
-                        self.friendsFbId.append(id)
+            if let title = title?.string {
+      
+                let url = obj as! NSURL
+                
+                var properties = [
+                    "og:type": "article",
+                    "og:url": url.absoluteString!,
+                    "og:title": title
+                ]
+                
+                if let serializedAccessToken = NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.objectForKey("FacebookAccessToken") as? NSData
+                {
+                    if let accessToken = NSKeyedUnarchiver.unarchiveObjectWithData(serializedAccessToken) as? FBSDKAccessToken
+                    {
+                        println("Unarchived access token with permissions: \(accessToken.permissions)")
+                        
+                        FBSDKAccessToken.setCurrentAccessToken(accessToken)
+                        
+                        if let user = PFUser.currentUser() {
+                            let object = FBSDKShareOpenGraphObject(properties: properties)
+                            let action = FBSDKShareOpenGraphAction(type: "news.publishes", object: object, key: "article")
+//                          action.actionType = "news.publishes"
+//                          action.setObject(object, forKey: "article")
+                            action.setString("true", forKey: "fb:explicitly_shared")
+                            let content = FBSDKShareOpenGraphContent()
+                            content.action = action
+                            
+                            for  var index = 0; index < self.friendsArray.count; index++ {
+                                let id = self.friendsArray[index].fbId
+                                self.friendsFbId.append(id)
+                            }
+                            content.peopleIDs = self.friendsFbId
+                            content.previewPropertyName = "article"
+                            
+                            dispatch_async(dispatch_get_main_queue()) {
+                                let share = FBSDKShareAPI.shareWithContent(content, delegate: self)
+                                
+                            }
+                        }
                     }
-                    content.peopleIDs = self.friendsFbId
-                    action.setObject(object, forKey: "news.read")
-                    FBSDKShareAPI.shareWithContent(content, delegate: nil)
                 }
-            } else {
-                PFFacebookUtils.linkUserInBackground(PFUser.currentUser()!, withPublishPermissions: ["publish_actions"], block: { (success, error) -> Void in
-                    if success {
-                        println("User linked withPublishPermissions")
-                    }
-                })
             }
         }
     }
     
     @IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        var extensionItem = NSExtensionItem()
+        self.extensionContext?.completeRequestReturningItems([extensionItem], completionHandler: nil)
+
     }
     
     func configurationItems() -> [AnyObject]! {
@@ -188,4 +186,29 @@ extension ShareViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+extension ShareViewController : FBSDKSharingDelegate
+{
+    func sharer(sharer: FBSDKSharing!, didCompleteWithResults results: [NSObject : AnyObject]!) {
+        println("Sharing completed with results: \(results)")
+    }
 
+    func sharer(sharer: FBSDKSharing!, didFailWithError error: NSError!) {
+        println("Sharing failed with error: \(error)")
+    }
+
+    func sharerDidCancel(sharer: FBSDKSharing!) {
+        println("Sharing canceled")
+    }
+}
+
+extension ShareViewController : UIWebViewDelegate {
+            func webViewDidFinishLoad(webView: UIWebView) {
+                var href = webView.stringByEvaluatingJavaScriptFromString("document.images[0].src")!
+                println("URL \(href)")
+                let url = NSURL(string: href)
+                var err: NSError?
+//                var imageData :NSData = NSData.dataWithContentsOfURL(url!, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!
+//                var bgImage = UIImage(data:imageData)
+//                self.imageView.image = bgImage
+    }
+}

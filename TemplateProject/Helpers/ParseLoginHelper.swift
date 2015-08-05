@@ -41,9 +41,6 @@ extension ParseLoginHelper : PFLogInViewControllerDelegate {
             self.callback(user, nil)
         } else {
             
-            let serializedAccessToken = NSKeyedArchiver.archivedDataWithRootObject(FBSDKAccessToken.currentAccessToken())
-            NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.setObject(serializedAccessToken, forKey: "FacebookAccessToken")
-            
             // if this is a Facebook login, fetch the username from Facebook
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, email"]).startWithCompletionHandler {
                 (connection: FBSDKGraphRequestConnection!, result: AnyObject?, error: NSError?) -> Void in

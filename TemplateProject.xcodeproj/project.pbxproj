@@ -13,7 +13,6 @@
 		624262C31B4460CB00005CE3 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624262B81B4460CB00005CE3 /* ErrorHandling.swift */; };
 		624262C41B4460CB00005CE3 /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624262B91B4460CB00005CE3 /* ParseLoginHelper.swift */; };
 		624262C51B4460CB00005CE3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 624262BA1B4460CB00005CE3 /* Images.xcassets */; };
-		624262C71B4460CB00005CE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624262BD1B4460CB00005CE3 /* ViewController.swift */; };
 		62551B941B06C072000913E4 /* ConvenienceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B8E1B06BFD7000913E4 /* ConvenienceKit.framework */; };
 		62551B961B06C2F5000913E4 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B951B06C2F5000913E4 /* Social.framework */; };
 		62551B981B06C2FD000913E4 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B971B06C2FD000913E4 /* Accounts.framework */; };
@@ -28,9 +27,7 @@
 		62A07D6F1B1F7FB9001F6916 /* Bond.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B7E1B06BFA2000913E4 /* Bond.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		71400E3F1B598A8B00E3B8CB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71400E3E1B598A8B00E3B8CB /* ProfileViewController.swift */; };
 		71400E431B598AF100E3B8CB /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71400E421B598AF100E3B8CB /* ProfileTableViewCell.swift */; };
-		71400E471B5D887E00E3B8CB /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71400E461B5D887E00E3B8CB /* EditProfileViewController.swift */; };
 		71400E491B5D894200E3B8CB /* EditProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71400E481B5D894200E3B8CB /* EditProfileTableViewCell.swift */; };
-		71400E501B5D9EB200E3B8CB /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71400E4F1B5D9EB200E3B8CB /* PhotoTakingHelper.swift */; };
 		71736A0C1B55DF1500B290FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71736A0B1B55DF1500B290FC /* Main.storyboard */; };
 		71A452821B6FDD1B001CDD7A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A452811B6FDD1B001CDD7A /* StoreKit.framework */; };
 		71A452831B6FDD21001CDD7A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71E20E3C1B6FD14E00794A9E /* Security.framework */; };
@@ -52,7 +49,6 @@
 		71A452DF1B701BA2001CDD7A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A452D81B701BA2001CDD7A /* FBSDKShareKit.framework */; };
 		71A452E01B701BA2001CDD7A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A452D81B701BA2001CDD7A /* FBSDKShareKit.framework */; };
 		71A452E31B701BE8001CDD7A /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A452E11B701BE8001CDD7A /* ShareViewController.swift */; };
-		71C9D7941B5EEFD500A1774B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9D7931B5EEFD500A1774B /* SettingsViewController.swift */; };
 		71C9D7981B5F00BC00A1774B /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9D7971B5F00BC00A1774B /* FriendsViewController.swift */; };
 		71C9D7A31B6002C300A1774B /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9D7A21B6002C300A1774B /* FriendTableViewCell.swift */; };
 		71C9D7AA1B61624200A1774B /* FBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9D7A91B61624200A1774B /* FBUser.swift */; };
@@ -192,7 +188,6 @@
 		624262BA1B4460CB00005CE3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		624262BB1B4460CB00005CE3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		624262BC1B4460CB00005CE3 /* TemplateProject-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TemplateProject-Bridging-Header.h"; sourceTree = "<group>"; };
-		624262BD1B4460CB00005CE3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		62551B751B06BFA2000913E4 /* Bond.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Bond.xcodeproj; path = Frameworks/Bond/Bond.xcodeproj; sourceTree = "<group>"; };
 		62551B871B06BFD7000913E4 /* ConvenienceKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ConvenienceKit.xcodeproj; path = Frameworks/ConvenienceKit/ConvenienceKit/ConvenienceKit.xcodeproj; sourceTree = "<group>"; };
 		62551B951B06C2F5000913E4 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -208,9 +203,7 @@
 		71400E2A1B5820DA00E3B8CB /* TemplateProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TemplateProject.entitlements; sourceTree = "<group>"; };
 		71400E3E1B598A8B00E3B8CB /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ViewControllers/ProfileViewController.swift; sourceTree = "<group>"; };
 		71400E421B598AF100E3B8CB /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileTableViewCell.swift; path = Views/Profile/ProfileTableViewCell.swift; sourceTree = "<group>"; };
-		71400E461B5D887E00E3B8CB /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileViewController.swift; path = ViewControllers/EditProfileViewController.swift; sourceTree = "<group>"; };
 		71400E481B5D894200E3B8CB /* EditProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileTableViewCell.swift; path = Views/Profile/EditProfileTableViewCell.swift; sourceTree = "<group>"; };
-		71400E4F1B5D9EB200E3B8CB /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoTakingHelper.swift; path = PhotoTaking/PhotoTakingHelper.swift; sourceTree = "<group>"; };
 		71736A0B1B55DF1500B290FC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		71A452811B6FDD1B001CDD7A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		71A452CB1B7004AE001CDD7A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -223,7 +216,6 @@
 		71A452D71B701BA2001CDD7A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		71A452D81B701BA2001CDD7A /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		71A452E11B701BE8001CDD7A /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareViewController.swift; path = ViewControllers/ShareViewController.swift; sourceTree = "<group>"; };
-		71C9D7931B5EEFD500A1774B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ViewControllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		71C9D7971B5F00BC00A1774B /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendsViewController.swift; path = ViewControllers/FriendsViewController.swift; sourceTree = "<group>"; };
 		71C9D7A21B6002C300A1774B /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendTableViewCell.swift; path = Views/Friends/FriendTableViewCell.swift; sourceTree = "<group>"; };
 		71C9D7A91B61624200A1774B /* FBUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FBUser.swift; path = Model/FBUser.swift; sourceTree = "<group>"; };
@@ -327,11 +319,9 @@
 				71C9D7A81B6161EC00A1774B /* Model */,
 				71400E3C1B598A1C00E3B8CB /* Views */,
 				71400E391B597B7100E3B8CB /* ViewControllers */,
-				71400E4C1B5D9E5200E3B8CB /* PhotoTaking */,
 				71400E2A1B5820DA00E3B8CB /* TemplateProject.entitlements */,
 				624262B21B4460CB00005CE3 /* AppDelegate.swift */,
 				624262B31B4460CB00005CE3 /* LaunchScreen.xib */,
-				624262BD1B4460CB00005CE3 /* ViewController.swift */,
 				71736A0B1B55DF1500B290FC /* Main.storyboard */,
 				624262B71B4460CB00005CE3 /* Helpers */,
 				624262BA1B4460CB00005CE3 /* Images.xcassets */,
@@ -430,8 +420,6 @@
 		71400E391B597B7100E3B8CB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				71C9D7931B5EEFD500A1774B /* SettingsViewController.swift */,
-				71400E461B5D887E00E3B8CB /* EditProfileViewController.swift */,
 				71400E3E1B598A8B00E3B8CB /* ProfileViewController.swift */,
 				71C9D7971B5F00BC00A1774B /* FriendsViewController.swift */,
 			);
@@ -455,14 +443,6 @@
 				71400E481B5D894200E3B8CB /* EditProfileTableViewCell.swift */,
 			);
 			name = Profile;
-			sourceTree = "<group>";
-		};
-		71400E4C1B5D9E5200E3B8CB /* PhotoTaking */ = {
-			isa = PBXGroup;
-			children = (
-				71400E4F1B5D9EB200E3B8CB /* PhotoTakingHelper.swift */,
-			);
-			name = PhotoTaking;
 			sourceTree = "<group>";
 		};
 		71C9D79B1B60029F00A1774B /* Friends */ = {
@@ -796,15 +776,11 @@
 				71400E3F1B598A8B00E3B8CB /* ProfileViewController.swift in Sources */,
 				71C9D7A31B6002C300A1774B /* FriendTableViewCell.swift in Sources */,
 				71C9D7AD1B61634E00A1774B /* SettingsTableViewCell.swift in Sources */,
-				71C9D7941B5EEFD500A1774B /* SettingsViewController.swift in Sources */,
 				71400E491B5D894200E3B8CB /* EditProfileTableViewCell.swift in Sources */,
 				71400E431B598AF100E3B8CB /* ProfileTableViewCell.swift in Sources */,
 				71C9D7981B5F00BC00A1774B /* FriendsViewController.swift in Sources */,
-				624262C71B4460CB00005CE3 /* ViewController.swift in Sources */,
-				71400E501B5D9EB200E3B8CB /* PhotoTakingHelper.swift in Sources */,
 				624262C31B4460CB00005CE3 /* ErrorHandling.swift in Sources */,
 				71C9D7AA1B61624200A1774B /* FBUser.swift in Sources */,
-				71400E471B5D887E00E3B8CB /* EditProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

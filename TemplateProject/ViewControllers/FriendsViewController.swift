@@ -8,8 +8,9 @@
 
 import UIKit
 import FBSDKCoreKit
+import Social
 import Parse
-
+import FBSDKShareKit
 class FriendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate{
     
     var friendsData: [FBUser] = []
@@ -30,8 +31,7 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
         searchBar.delegate = self
         
         self.tableView.allowsMultipleSelection = true
-        
-        FBSDKGraphRequest(graphPath: "/me/taggable_friends", parameters: ["limit" : "180"], HTTPMethod: "GET").startWithCompletionHandler { (connection: FBSDKGraphRequestConnection!, result: AnyObject?, error: NSError?) -> Void in
+                FBSDKGraphRequest(graphPath: "/me/taggable_friends", parameters: ["limit" : "180"], HTTPMethod: "GET").startWithCompletionHandler { (connection: FBSDKGraphRequestConnection!, result: AnyObject?, error: NSError?) -> Void in
             if error == nil {
                 if let data = result?["data"] as? [[String: AnyObject]] {
 //                    println("Friends are : \(data)")
