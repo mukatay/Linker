@@ -14,15 +14,12 @@ import FBSDKShareKit
 class FriendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate{
     
     var friendsData: [FBUser] = []
+    var filtered:[FBUser] = []
     
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var searchBar: UISearchBar!
-    
-    var checked = [String: Bool]()
-    var searchActive : Bool = false
-    var filtered:[FBUser] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +31,6 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
                 FBSDKGraphRequest(graphPath: "/me/taggable_friends", parameters: ["limit" : "180"], HTTPMethod: "GET").startWithCompletionHandler { (connection: FBSDKGraphRequestConnection!, result: AnyObject?, error: NSError?) -> Void in
             if error == nil {
                 if let data = result?["data"] as? [[String: AnyObject]] {
-//                    println("Friends are : \(data)")
                     NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.setObject(data, forKey: "FBData")
                     NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.synchronize()
                     
@@ -53,7 +49,6 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
                 println("Error Getting Friends \(error)");
             }
         }
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -70,16 +65,12 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
     // Pass the selected object to the new view controller.
     }
     */
-    
 }
 
 extension FriendsViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if(searchActive) {
-            return filtered.count
-        }
         return friendsData.count
     }
     
@@ -89,17 +80,9 @@ extension FriendsViewController: UITableViewDataSource {
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         
         var friend = friendsData[indexPath.row]
-        if(searchActive){
-            friend = filtered[indexPath.row]
-        }
-        
+ 
         cell.friendUsername.text = friend.username
-        cell.accessoryType = UITableViewCellAccessoryType.None
-        
-        if checked[friend.username] == true {
-            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-        }
-        
+
         if let urlString = friend.profilePic, url = NSURL(string: urlString) {
             cell.friendPicture.layer.masksToBounds = true;
             cell.friendPicture.layer.cornerRadius = cell.friendPicture.frame.height/2;
@@ -110,59 +93,24 @@ extension FriendsViewController: UITableViewDataSource {
     }
 }
 
-extension FriendsViewController: UITableViewDelegate {
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
-        
-        if searchActive {
-            let isChecked = checked[filtered[indexPath.row].username] ?? false
-            checked[filtered[indexPath.row].username] = !isChecked
-        } else {
-            let isChecked = checked[friendsData[indexPath.row].username] ?? false
-            checked[friendsData[indexPath.row].username] = !isChecked
-        }
-        
-        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
-    }
-    
-    private func getSelectedUsers()->[FBUser] {
-        
-        var selectedUsers : [FBUser] = []
-        for friend in friendsData {
-            if checked[friend.username] == true {
-                selectedUsers.append(friend)
-            }
-        }
-        return selectedUsers
-    }
-}
-
 extension FriendsViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
-        searchActive = true;
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         searchBar.text = ""
         searchBar.setShowsCancelButton(false, animated: true)
-        searchActive = false
         tableView.reloadData()
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
         let options = NSStringCompareOptions.CaseInsensitiveSearch
-        if searchText == "" {
-            searchActive = false
-        } else {
-            filtered = filter(friendsData){ $0.username.rangeOfString(searchText, options: options) != nil }
-            searchActive = true
-        }
+        filtered = filter(friendsData){ $0.username.rangeOfString(searchText, options: options) != nil }
+        
         self.tableView.reloadData()
     }
 }

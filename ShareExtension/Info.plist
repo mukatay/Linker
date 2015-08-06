@@ -26,10 +26,16 @@
 	<dict>
 		<key>NSExtensionAttributes</key>
 		<dict>
+			<key>NSExtensionJavaScriptPreprocessingFile</key>
+			<string>extension_js</string>
 			<key>NSExtensionActivationRule</key>
 			<dict>
 				<key>NSExtensionActivationSupportsWebPageWithMaxCount</key>
 				<integer>1</integer>
+				<key>NSExtensionActivationSupportsWebURLWithMaxCount</key>
+				<integer>1</integer>
+				<key>NSExtensionActivationSupportsText</key>
+				<true/>
 			</dict>
 		</dict>
 		<key>NSExtensionMainStoryboard</key>

@@ -1,18 +1,14 @@
 //
-//  SharingContentTableViewCell.swift
+//  AboutTableViewCell.swift
 //  TemplateProject
 //
-//  Created by Darkhan Mukatay on 7/28/15.
+//  Created by Darkhan Mukatay on 8/5/15.
 //  Copyright (c) 2015 Make School. All rights reserved.
 //
 
 import UIKit
 
-class SharingContentTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var linkTitle: UILabel!
-    
-    @IBOutlet weak var linkImage: UIImageView!
+class AboutTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,4 +20,5 @@ class SharingContentTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+
 }

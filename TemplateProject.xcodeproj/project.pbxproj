@@ -26,8 +26,6 @@
 		62A07D6E1B1F7FB9001F6916 /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B7E1B06BFA2000913E4 /* Bond.framework */; };
 		62A07D6F1B1F7FB9001F6916 /* Bond.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B7E1B06BFA2000913E4 /* Bond.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		71400E3F1B598A8B00E3B8CB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71400E3E1B598A8B00E3B8CB /* ProfileViewController.swift */; };
-		71400E431B598AF100E3B8CB /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71400E421B598AF100E3B8CB /* ProfileTableViewCell.swift */; };
-		71400E491B5D894200E3B8CB /* EditProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71400E481B5D894200E3B8CB /* EditProfileTableViewCell.swift */; };
 		71736A0C1B55DF1500B290FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71736A0B1B55DF1500B290FC /* Main.storyboard */; };
 		71A452821B6FDD1B001CDD7A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A452811B6FDD1B001CDD7A /* StoreKit.framework */; };
 		71A452831B6FDD21001CDD7A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71E20E3C1B6FD14E00794A9E /* Security.framework */; };
@@ -49,10 +47,13 @@
 		71A452DF1B701BA2001CDD7A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A452D81B701BA2001CDD7A /* FBSDKShareKit.framework */; };
 		71A452E01B701BA2001CDD7A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A452D81B701BA2001CDD7A /* FBSDKShareKit.framework */; };
 		71A452E31B701BE8001CDD7A /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A452E11B701BE8001CDD7A /* ShareViewController.swift */; };
+		71B74E911B72829100447958 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B74E901B72829100447958 /* AboutViewController.swift */; };
+		71B74E931B7282D100447958 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B74E921B7282D100447958 /* ProfileTableViewCell.swift */; };
+		71B74E951B7282FB00447958 /* AboutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B74E941B7282FB00447958 /* AboutTableViewCell.swift */; };
+		71B74E971B72B7D200447958 /* extension_js.js in Resources */ = {isa = PBXBuildFile; fileRef = 71B74E961B72B7D200447958 /* extension_js.js */; };
 		71C9D7981B5F00BC00A1774B /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9D7971B5F00BC00A1774B /* FriendsViewController.swift */; };
 		71C9D7A31B6002C300A1774B /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9D7A21B6002C300A1774B /* FriendTableViewCell.swift */; };
 		71C9D7AA1B61624200A1774B /* FBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9D7A91B61624200A1774B /* FBUser.swift */; };
-		71C9D7AD1B61634E00A1774B /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9D7AC1B61634E00A1774B /* SettingsTableViewCell.swift */; };
 		71DFAB2C1B62E0300051D5A9 /* FBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9D7A91B61624200A1774B /* FBUser.swift */; };
 		71DFAB501B66AADB0051D5A9 /* FriendsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DFAB4F1B66AADB0051D5A9 /* FriendsListTableViewCell.swift */; };
 		71DFAB531B66AAE60051D5A9 /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DFAB511B66AAE60051D5A9 /* FriendsListViewController.swift */; };
@@ -202,8 +203,6 @@
 		67A12CAA8732AA953F28CFD7 /* Pods-ShareExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShareExtension/Pods-ShareExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		71400E2A1B5820DA00E3B8CB /* TemplateProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TemplateProject.entitlements; sourceTree = "<group>"; };
 		71400E3E1B598A8B00E3B8CB /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ViewControllers/ProfileViewController.swift; sourceTree = "<group>"; };
-		71400E421B598AF100E3B8CB /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileTableViewCell.swift; path = Views/Profile/ProfileTableViewCell.swift; sourceTree = "<group>"; };
-		71400E481B5D894200E3B8CB /* EditProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileTableViewCell.swift; path = Views/Profile/EditProfileTableViewCell.swift; sourceTree = "<group>"; };
 		71736A0B1B55DF1500B290FC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		71A452811B6FDD1B001CDD7A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		71A452CB1B7004AE001CDD7A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -216,10 +215,13 @@
 		71A452D71B701BA2001CDD7A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		71A452D81B701BA2001CDD7A /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		71A452E11B701BE8001CDD7A /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareViewController.swift; path = ViewControllers/ShareViewController.swift; sourceTree = "<group>"; };
+		71B74E901B72829100447958 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = ViewControllers/AboutViewController.swift; sourceTree = "<group>"; };
+		71B74E921B7282D100447958 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileTableViewCell.swift; path = "Views/Profile & Settings/ProfileTableViewCell.swift"; sourceTree = "<group>"; };
+		71B74E941B7282FB00447958 /* AboutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutTableViewCell.swift; path = "Views/Profile & Settings/AboutTableViewCell.swift"; sourceTree = "<group>"; };
+		71B74E961B72B7D200447958 /* extension_js.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = extension_js.js; sourceTree = "<group>"; };
 		71C9D7971B5F00BC00A1774B /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendsViewController.swift; path = ViewControllers/FriendsViewController.swift; sourceTree = "<group>"; };
 		71C9D7A21B6002C300A1774B /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendTableViewCell.swift; path = Views/Friends/FriendTableViewCell.swift; sourceTree = "<group>"; };
 		71C9D7A91B61624200A1774B /* FBUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FBUser.swift; path = Model/FBUser.swift; sourceTree = "<group>"; };
-		71C9D7AC1B61634E00A1774B /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewCell.swift; path = Views/Settings/SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		71DFAB301B630E1E0051D5A9 /* ShareExtension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShareExtension-Bridging-Header.h"; sourceTree = "<group>"; };
 		71DFAB341B630E760051D5A9 /* libPods-TemplateProject.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-TemplateProject.a"; path = "Pods/../build/Debug-iphoneos/libPods-TemplateProject.a"; sourceTree = "<group>"; };
 		71DFAB4F1B66AADB0051D5A9 /* FriendsListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendsListTableViewCell.swift; path = Views/FriendsListTableViewCell.swift; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 			children = (
 				71400E3E1B598A8B00E3B8CB /* ProfileViewController.swift */,
 				71C9D7971B5F00BC00A1774B /* FriendsViewController.swift */,
+				71B74E901B72829100447958 /* AboutViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -429,20 +432,19 @@
 		71400E3C1B598A1C00E3B8CB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				71C9D7AB1B61631300A1774B /* Settings */,
 				71C9D79B1B60029F00A1774B /* Friends */,
-				71400E3D1B598A4000E3B8CB /* Profile */,
+				71400E3D1B598A4000E3B8CB /* Profile & Settings */,
 			);
 			name = Views;
 			sourceTree = "<group>";
 		};
-		71400E3D1B598A4000E3B8CB /* Profile */ = {
+		71400E3D1B598A4000E3B8CB /* Profile & Settings */ = {
 			isa = PBXGroup;
 			children = (
-				71400E421B598AF100E3B8CB /* ProfileTableViewCell.swift */,
-				71400E481B5D894200E3B8CB /* EditProfileTableViewCell.swift */,
+				71B74E921B7282D100447958 /* ProfileTableViewCell.swift */,
+				71B74E941B7282FB00447958 /* AboutTableViewCell.swift */,
 			);
-			name = Profile;
+			name = "Profile & Settings";
 			sourceTree = "<group>";
 		};
 		71C9D79B1B60029F00A1774B /* Friends */ = {
@@ -459,14 +461,6 @@
 				71C9D7A91B61624200A1774B /* FBUser.swift */,
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		71C9D7AB1B61631300A1774B /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				71C9D7AC1B61634E00A1774B /* SettingsTableViewCell.swift */,
-			);
-			name = Settings;
 			sourceTree = "<group>";
 		};
 		71DFAB4C1B66AA140051D5A9 /* ViewControllers */ = {
@@ -506,6 +500,7 @@
 			isa = PBXGroup;
 			children = (
 				71E10F201B56E9970009A0E6 /* Info.plist */,
+				71B74E961B72B7D200447958 /* extension_js.js */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -698,6 +693,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71E10F241B56E9970009A0E6 /* MainInterface.storyboard in Resources */,
+				71B74E971B72B7D200447958 /* extension_js.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -772,12 +768,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				624262C01B4460CB00005CE3 /* AppDelegate.swift in Sources */,
+				71B74E951B7282FB00447958 /* AboutTableViewCell.swift in Sources */,
 				624262C41B4460CB00005CE3 /* ParseLoginHelper.swift in Sources */,
 				71400E3F1B598A8B00E3B8CB /* ProfileViewController.swift in Sources */,
+				71B74E931B7282D100447958 /* ProfileTableViewCell.swift in Sources */,
+				71B74E911B72829100447958 /* AboutViewController.swift in Sources */,
 				71C9D7A31B6002C300A1774B /* FriendTableViewCell.swift in Sources */,
-				71C9D7AD1B61634E00A1774B /* SettingsTableViewCell.swift in Sources */,
-				71400E491B5D894200E3B8CB /* EditProfileTableViewCell.swift in Sources */,
-				71400E431B598AF100E3B8CB /* ProfileTableViewCell.swift in Sources */,
 				71C9D7981B5F00BC00A1774B /* FriendsViewController.swift in Sources */,
 				624262C31B4460CB00005CE3 /* ErrorHandling.swift in Sources */,
 				71C9D7AA1B61624200A1774B /* FBUser.swift in Sources */,

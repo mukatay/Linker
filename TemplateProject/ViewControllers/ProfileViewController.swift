@@ -12,7 +12,7 @@ import Parse
 class ProfileViewController: UIViewController {
     
     var sections = [
-        "System accounts" : ["row"]
+        "Settings & Feedback" : ["row"]
     ]
 
     @IBOutlet weak var tableView: UITableView!
@@ -37,7 +37,7 @@ class ProfileViewController: UIViewController {
         userName.text = user!.username
         emailAddress.text = user!.email
         
-        if let urlString = PFUser.currentUser()?.valueForKey("profilePicture") as? String, url = NSURL(string: urlString) {
+        if let urlString = user?.valueForKey("profilePicture") as? String, url = NSURL(string: urlString) {
             self.profileImage.layer.masksToBounds = true;
             self.profileImage.layer.cornerRadius = self.profileImage.frame.height/2;
             profileImage.sd_setImageWithURL(url)
@@ -45,10 +45,6 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    @IBAction func logOutTapped(sender: UIBarButtonItem) {
-        PFFacebookUtils.unlinkUserInBackground(PFUser.currentUser()!)
-        PFUser.logOut()
-    }
 }
 
 extension ProfileViewController: UITableViewDataSource {
@@ -59,7 +55,6 @@ extension ProfileViewController: UITableViewDataSource {
         let key = Array(sections.keys)[indexPath.section]
         let value = sections[key]![indexPath.row]
         
-        // at this point value would be the title of the row
         
         return cell
     }

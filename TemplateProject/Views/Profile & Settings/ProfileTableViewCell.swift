@@ -11,8 +11,6 @@ import Parse
 
 class ProfileTableViewCell: UITableViewCell{
  
-    @IBOutlet weak var facebookAccount: UIButton!
     
-    @IBOutlet weak var emailAccount: UIButton!
-
+    
 }
