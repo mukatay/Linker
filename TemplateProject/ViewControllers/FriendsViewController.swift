@@ -11,10 +11,12 @@ import FBSDKCoreKit
 import Social
 import Parse
 import FBSDKShareKit
+
 class FriendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate{
     
     var friendsData: [FBUser] = []
     var filtered:[FBUser] = []
+    var searchActive : Bool = false
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,7 +24,6 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.dataSource = self
         tableView.delegate =  self
         searchBar.delegate = self
@@ -56,7 +57,11 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Avenir Next", size: 22)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
+    }
     /*
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -71,8 +76,10 @@ extension FriendsViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return friendsData.count
-    }
+        if(searchActive) {
+            return filtered.count
+        }
+        return friendsData.count    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -80,7 +87,10 @@ extension FriendsViewController: UITableViewDataSource {
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         
         var friend = friendsData[indexPath.row]
- 
+        if(searchActive){
+            friend = filtered[indexPath.row]
+        }
+        
         cell.friendUsername.text = friend.username
 
         if let urlString = friend.profilePic, url = NSURL(string: urlString) {
@@ -97,19 +107,26 @@ extension FriendsViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
+        searchActive = true;
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         searchBar.text = ""
         searchBar.setShowsCancelButton(false, animated: true)
+        searchActive = false
         tableView.reloadData()
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
         let options = NSStringCompareOptions.CaseInsensitiveSearch
-        filtered = filter(friendsData){ $0.username.rangeOfString(searchText, options: options) != nil }
+        if searchText == "" {
+            searchActive = false
+        } else {
+            filtered = filter(friendsData){ $0.username.rangeOfString(searchText, options: options) != nil }
+            searchActive = true
+        }
         
         self.tableView.reloadData()
     }

@@ -18,7 +18,8 @@ class ShareViewController: UIViewController{
     
     var friendsArray: [FBUser]
     var friendsFbId: [String]
-    var pageImageURL = ""
+    
+    var mostRecentFriendsViewController: FriendsListViewController?
     
     required init(coder aDecoder: NSCoder) {
         self.friendsArray = []
@@ -64,7 +65,7 @@ class ShareViewController: UIViewController{
                             if let results = resultDict[NSExtensionJavaScriptPreprocessingResultsKey] as? [String : AnyObject]
                             {
                                 var pageDescription = (results["description"] ?? "No description") as! String
-                                self.pageImageURL = (results["imageURL"] ?? "default") as! String
+                                var pageImageURL = (results["imageURL"] ?? "default") as! String
                                 var pageTitle = (results["title"] ?? "No title") as! String
                                 var pageURL = (results["url"] ?? "default") as! String
                                 
@@ -73,7 +74,7 @@ class ShareViewController: UIViewController{
                                     "og:url": pageURL,
                                     "og:title": pageTitle,
                                     "og:description": pageDescription,
-                                    "og:image:url": self.pageImageURL
+                                    "og:image:url": pageImageURL
                                 ]
                                 
                                 if let serializedAccessToken = NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.objectForKey("FacebookAccessToken") as? NSData
@@ -126,6 +127,7 @@ class ShareViewController: UIViewController{
         if (segue.identifier == "show") {
             
             let friendListViewController = segue.destinationViewController as! FriendsListViewController
+            mostRecentFriendsViewController = friendListViewController
             var checked : [String : Bool] = [String : Bool]()
             for user in self.friendsArray {
                 checked[user.username] = true
@@ -134,13 +136,14 @@ class ShareViewController: UIViewController{
         }
     }
     
-    @IBAction func unwindToSegue(segue: UIStoryboardSegue){
-        if (segue.identifier == "done") {
-            let friendListViewController = segue.sourceViewController as! FriendsListViewController
-            self.friendsArray = friendListViewController.getSelectedUsers()
+    override func viewWillAppear(animated: Bool) {
+        if let friendsVC = mostRecentFriendsViewController {
+            self.friendsArray = friendsVC.getSelectedUsers()
             self.tableView.reloadData()
+            mostRecentFriendsViewController = nil
         }
     }
+
 }
 extension ShareViewController: UITableViewDataSource, UITableViewDelegate {
     
@@ -158,9 +161,7 @@ extension ShareViewController: UITableViewDataSource, UITableViewDelegate {
             cell.linkTitle.numberOfLines = 0
             cell.linkTitle.text = title?.string
             cell.linkTitle.sizeToFit()
-//            var imageData :NSData = NSData.dataWithContentsOfURL(pageImageURL, options: NSDataReadingOptions.DataReadingMappedIfSafe, error &errr)
-//            var bgImage = UIImage(data:imageData)
-//            cell.linkImage.image = bgImage
+            cell.selectionStyle = .None
             
             return cell
         } else if indexPath.row == 1 {
@@ -180,6 +181,8 @@ extension ShareViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.friendProfilePic.sd_setImageWithURL(url)
 //              profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NAME"))
             }
+            
+            cell.selectionStyle = .None
             return cell
         }
     }
@@ -194,7 +197,7 @@ extension ShareViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
+        return indexPath.row > 1 // First two rows should not be deletable
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {

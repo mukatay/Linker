@@ -8,12 +8,13 @@
 
 import UIKit
 import Parse
+import MessageUI
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
-    var sections = [
-        "Settings & Feedback" : ["row"]
-    ]
+    var sectionTitles = [ "Settings & Feedback" ]
+    
+    var sectionData = [["About", "Send Feedback", "Review on the App Store", "Log Out" ]]
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -27,8 +28,9 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+   
         tableView.dataSource = self
+        tableView.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -45,31 +47,73 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    
+    override func viewWillAppear(animated: Bool) {
+        navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Avenir Next", size: 22)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        mailComposerVC.setToRecipients(["mukatay.darhan@gmail.com"])
+        mailComposerVC.setSubject("Linker feedback")
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
+        sendMailErrorAlert.show()
+    }
+
 }
 
-extension ProfileViewController: UITableViewDataSource {
+extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("UserProfileCell", forIndexPath: indexPath) as! ProfileTableViewCell
-        
-        let key = Array(sections.keys)[indexPath.section]
-        let value = sections[key]![indexPath.row]
-        
-        
+        let value = sectionData[indexPath.section][indexPath.row]
+        cell.titleLabel.text = value
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let key = Array(sections.keys)[section]
-        return sections[key]!.count
+        return sectionData[section].count
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return Array(sections.keys).count
+        return sectionTitles.count
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return Array(sections.keys)[section]
+        return sectionTitles[section]
     }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+        
+    }
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == 0 {
+            
+        }else if indexPath.row == 1 {
+            let mailComposeViewController = configuredMailComposeViewController()
+            if MFMailComposeViewController.canSendMail() {
+                self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+            } else {
+                self.showSendMailErrorAlert()
+            }
+
+        }
+    }
+    
 }
+
+
 
