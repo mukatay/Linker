@@ -7,3 +7,4 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 #import <Parse/Parse.h>
+#import <QuartzCore/QuartzCore.h>

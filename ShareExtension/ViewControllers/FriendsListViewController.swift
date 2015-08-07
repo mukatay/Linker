@@ -25,6 +25,11 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let backItem = UIBarButtonItem(title: "Back", style: .Plain, target: nil, action: nil)
+        backItem.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir Next", size: 18)!, NSForegroundColorAttributeName: UIColor.whiteColor()], forState: .Normal)
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backItem
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
         tableView.dataSource = self
         tableView.delegate =  self
         searchBar.delegate = self
@@ -47,6 +52,12 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UITabl
             self.tableView.reloadData()
         }
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Avenir Next", size: 19)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+    }
+
 }
 
 extension FriendsListViewController: UITableViewDataSource {

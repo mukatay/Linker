@@ -31,6 +31,8 @@ class ProfileViewController: UIViewController, MFMailComposeViewControllerDelega
    
         tableView.dataSource = self
         tableView.delegate = self
+        
+        tableView.registerNib(UINib(nibName: "ProfileSectionHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "ProfileSectionHeader")
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -50,6 +52,7 @@ class ProfileViewController: UIViewController, MFMailComposeViewControllerDelega
     
     override func viewWillAppear(animated: Bool) {
         navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Avenir Next", size: 22)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
+       
     }
     
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
@@ -79,6 +82,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("UserProfileCell", forIndexPath: indexPath) as! ProfileTableViewCell
         let value = sectionData[indexPath.section][indexPath.row]
         cell.titleLabel.text = value
+        
         return cell
     }
     
@@ -90,18 +94,22 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         return sectionTitles.count
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionTitles[section]
-    }
-    
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
-        
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("ProfileSectionHeader") as! ProfileSectionHeader
+        headerView.titleLabel.text = sectionTitles[section]
+        return headerView
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == 0 {
-            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let destination = storyboard.instantiateViewControllerWithIdentifier("About") as! UIViewController
+            navigationController?.pushViewController(destination, animated: true)
+
         }else if indexPath.row == 1 {
             let mailComposeViewController = configuredMailComposeViewController()
             if MFMailComposeViewController.canSendMail() {
@@ -110,7 +118,13 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
                 self.showSendMailErrorAlert()
             }
 
+        }else if indexPath == 2 {
+            
+        }else if indexPath == 3 {
+            PFUser.logOut()
+            PFFacebookUtils.unlinkUserInBackground(PFUser.currentUser()!)
         }
+        
     }
     
 }

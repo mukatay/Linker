@@ -27,6 +27,8 @@
 		62A07D6F1B1F7FB9001F6916 /* Bond.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B7E1B06BFA2000913E4 /* Bond.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		71180DBE1B73C4E400E6DA31 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71180DBD1B73C4E400E6DA31 /* Foundation.framework */; };
 		71400E3F1B598A8B00E3B8CB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71400E3E1B598A8B00E3B8CB /* ProfileViewController.swift */; };
+		714D13631B7419BB003A5DB3 /* ProfileSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 714D13621B7419BB003A5DB3 /* ProfileSectionHeader.xib */; };
+		714D136B1B741ABC003A5DB3 /* ProfileSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D136A1B741ABC003A5DB3 /* ProfileSectionHeader.swift */; };
 		71736A0C1B55DF1500B290FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71736A0B1B55DF1500B290FC /* Main.storyboard */; };
 		71A452821B6FDD1B001CDD7A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A452811B6FDD1B001CDD7A /* StoreKit.framework */; };
 		71A452831B6FDD21001CDD7A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71E20E3C1B6FD14E00794A9E /* Security.framework */; };
@@ -205,6 +207,8 @@
 		71180DBD1B73C4E400E6DA31 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		71400E2A1B5820DA00E3B8CB /* TemplateProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TemplateProject.entitlements; sourceTree = "<group>"; };
 		71400E3E1B598A8B00E3B8CB /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ViewControllers/ProfileViewController.swift; sourceTree = "<group>"; };
+		714D13621B7419BB003A5DB3 /* ProfileSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileSectionHeader.xib; sourceTree = "<group>"; };
+		714D136A1B741ABC003A5DB3 /* ProfileSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileSectionHeader.swift; path = "Views/Profile & Settings/ProfileSectionHeader.swift"; sourceTree = "<group>"; };
 		71736A0B1B55DF1500B290FC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		71A452811B6FDD1B001CDD7A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		71A452CB1B7004AE001CDD7A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -282,11 +286,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71A452861B6FDD47001CDD7A /* QuartzCore.framework in Frameworks */,
 				71180DBE1B73C4E400E6DA31 /* Foundation.framework in Frameworks */,
 				71A452DE1B701BA2001CDD7A /* FBSDKLoginKit.framework in Frameworks */,
 				71A452DA1B701BA2001CDD7A /* Bolts.framework in Frameworks */,
 				71A452871B6FDD55001CDD7A /* libz.dylib in Frameworks */,
-				71A452861B6FDD47001CDD7A /* QuartzCore.framework in Frameworks */,
 				71A452851B6FDD3B001CDD7A /* CoreGraphics.framework in Frameworks */,
 				71A452841B6FDD2D001CDD7A /* CFNetwork.framework in Frameworks */,
 				71A452831B6FDD21001CDD7A /* Security.framework in Frameworks */,
@@ -445,6 +449,8 @@
 		71400E3D1B598A4000E3B8CB /* Profile & Settings */ = {
 			isa = PBXGroup;
 			children = (
+				714D136A1B741ABC003A5DB3 /* ProfileSectionHeader.swift */,
+				714D13621B7419BB003A5DB3 /* ProfileSectionHeader.xib */,
 				71B74E921B7282D100447958 /* ProfileTableViewCell.swift */,
 				71B74E941B7282FB00447958 /* AboutTableViewCell.swift */,
 			);
@@ -686,6 +692,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				714D13631B7419BB003A5DB3 /* ProfileSectionHeader.xib in Resources */,
 				71736A0C1B55DF1500B290FC /* Main.storyboard in Resources */,
 				624262C51B4460CB00005CE3 /* Images.xcassets in Resources */,
 				624262C11B4460CB00005CE3 /* LaunchScreen.xib in Resources */,
@@ -772,6 +779,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				624262C01B4460CB00005CE3 /* AppDelegate.swift in Sources */,
+				714D136B1B741ABC003A5DB3 /* ProfileSectionHeader.swift in Sources */,
 				71B74E951B7282FB00447958 /* AboutTableViewCell.swift in Sources */,
 				624262C41B4460CB00005CE3 /* ParseLoginHelper.swift in Sources */,
 				71400E3F1B598A8B00E3B8CB /* ProfileViewController.swift in Sources */,

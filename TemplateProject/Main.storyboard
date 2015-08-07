@@ -172,7 +172,7 @@
         <!--About-->
         <scene sceneID="zu8-sb-svk">
             <objects>
-                <viewController id="edE-QI-Bjy" customClass="AboutViewController" customModule="TemplateProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="About" id="edE-QI-Bjy" customClass="AboutViewController" customModule="TemplateProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c4C-2W-E4H"/>
                         <viewControllerLayoutGuide type="bottom" id="mwj-0l-LFe"/>
@@ -211,9 +211,14 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="edE-QI-Bjy" id="shm-u2-0Wa"/>
+                                    <outlet property="delegate" destination="edE-QI-Bjy" id="GSi-w1-emv"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="fCX-5X-kWW"/>
                     <connections>
@@ -248,8 +253,11 @@
         <scene sceneID="kpZ-Gp-rov">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hdw-dE-HHd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="SelectedProfileIcon" id="g3T-t7-woc" userLabel="Profile">
+                    <tabBarItem key="tabBarItem" title="" image="ProfileIcon" selectedImage="SelectedProfile" id="g3T-t7-woc" userLabel="Profile">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="SelectedProfile"/>
+                        </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YTJ-3b-pSV">
@@ -270,10 +278,10 @@
         <scene sceneID="q5c-eu-HgZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Emv-15-YLM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="FriendsIcon" id="nav-m4-9CE">
+                    <tabBarItem key="tabBarItem" title="" image="FriendsIcon" selectedImage="SelectedFriends" id="nav-m4-9CE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="image" keyPath="selectedFriends" value="BDF21F1F-A966-4264-8597-744B5747043D"/>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="SelectedFriends"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <toolbarItems/>
@@ -294,6 +302,8 @@
     </scenes>
     <resources>
         <image name="FriendsIcon" width="29" height="23"/>
-        <image name="SelectedProfileIcon" width="22" height="22"/>
+        <image name="ProfileIcon" width="22" height="22"/>
+        <image name="SelectedFriends" width="29" height="23"/>
+        <image name="SelectedProfile" width="22" height="22"/>
     </resources>
 </document>

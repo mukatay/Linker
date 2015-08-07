@@ -13,6 +13,8 @@ import Parse
 import MobileCoreServices
 
 class ShareViewController: UIViewController{
+
+    @IBOutlet var shareView: UIView!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -34,6 +36,8 @@ class ShareViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
         if(!Parse.isLocalDatastoreEnabled()){
             Parse.enableLocalDatastore()
@@ -137,6 +141,7 @@ class ShareViewController: UIViewController{
     }
     
     override func viewWillAppear(animated: Bool) {
+        
         if let friendsVC = mostRecentFriendsViewController {
             self.friendsArray = friendsVC.getSelectedUsers()
             self.tableView.reloadData()

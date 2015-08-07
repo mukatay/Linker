@@ -12,19 +12,24 @@ class AboutViewController: UIViewController {
     
     var sectionTitles = [ "App version", "Development & Design" ]
     
-    var sectionData = [[ "Linker", "Darkhan Mukatay" ]]
+    var sectionData = [[ "Linker      1.0.0"], ["Darkhan Mukatay" ]]
 
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let backItem = UIBarButtonItem(title: "Back", style: .Plain, target: nil, action: nil)
+        backItem.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir Next", size: 19)!, NSForegroundColorAttributeName: UIColor.whiteColor()], forState: .Normal)
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backItem
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
         tableView.dataSource = self
         tableView.delegate = self
         
-        // Do any additional setup after loading the view.
+        tableView.registerNib(UINib(nibName: "ProfileSectionHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "ProfileSectionHeader")
+        
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -59,7 +64,7 @@ extension AboutViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1//sectionData[section].count
+        return sectionData[section].count
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -72,7 +77,12 @@ extension AboutViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
-        
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("ProfileSectionHeader") as! ProfileSectionHeader
+        headerView.titleLabel.text = sectionTitles[section]
+        return headerView
     }
     
 }
