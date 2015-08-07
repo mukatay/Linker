@@ -201,7 +201,7 @@ extension ShareViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(tableView: UITableView, hacanEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return indexPath.row > 1 // First two rows should not be deletable
     }
     

@@ -122,7 +122,6 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             
         }else if indexPath == 3 {
             PFUser.logOut()
-            PFFacebookUtils.unlinkUserInBackground(PFUser.currentUser()!)
         }
         
     }
