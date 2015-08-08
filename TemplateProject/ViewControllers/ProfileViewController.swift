@@ -118,10 +118,16 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
                 self.showSendMailErrorAlert()
             }
 
-        }else if indexPath == 2 {
+        }else if indexPath.row == 2 {
             
-        }else if indexPath == 3 {
+            let appStoreURL = NSURL(string: "itms-apps://itunes.apple.com/app/id=1028675163?mt=8")
+            UIApplication.sharedApplication().openURL(appStoreURL!)
+            
+        }else if indexPath.row == 3 {
             PFUser.logOut()
+            
+            let loginViewController = MyLoginViewController()
+            self.presentViewController(loginViewController, animated: true, completion: nil)
         }
         
     }

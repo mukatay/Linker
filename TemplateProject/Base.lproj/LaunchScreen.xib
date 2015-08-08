@@ -10,25 +10,25 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Linker" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX" userLabel="AppName">
-                    <rect key="frame" x="66" y="90" width="348" height="90"/>
-                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="66"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                    <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <size key="shadowOffset" width="2" height="3"/>
-                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch screen" translatesAutoresizingMaskIntoConstraints="NO" id="m3A-yf-8RP">
+                    <rect key="frame" x="131" y="140" width="234" height="185"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="185" id="Ca0-sm-yAg"/>
+                        <constraint firstAttribute="width" constant="234" id="zGx-Jq-Cub"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.18039215689999999" green="0.80000000000000004" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="143" id="3hU-yB-T5D"/>
-                <constraint firstAttribute="trailing" secondItem="kId-c2-rCX" secondAttribute="trailing" constant="66" id="ZgK-Uo-trS"/>
-                <constraint firstAttribute="bottom" secondItem="kId-c2-rCX" secondAttribute="bottom" constant="335" id="bNJ-Sw-HO0"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="66" id="dWP-cD-pOm"/>
+                <constraint firstItem="m3A-yf-8RP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="140" id="J6A-sz-WBE"/>
+                <constraint firstAttribute="centerX" secondItem="m3A-yf-8RP" secondAttribute="centerX" constant="-8" id="YiI-KX-4hw"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
+    <resources>
+        <image name="Launch screen" width="194" height="182"/>
+    </resources>
 </document>

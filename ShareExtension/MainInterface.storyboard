@@ -14,11 +14,11 @@
                         <viewControllerLayoutGuide type="bottom" id="acZ-k5-K4J"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VgS-wn-yej">
-                        <rect key="frame" x="0.0" y="0.0" width="572" height="287"/>
+                        <rect key="frame" x="0.0" y="0.0" width="572" height="512"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="174" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xbE-dW-g3g">
-                                <rect key="frame" x="0.0" y="0.0" width="572" height="287"/>
+                                <rect key="frame" x="0.0" y="0.0" width="572" height="512"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainCell" rowHeight="155" id="J4j-Nt-wV1" customClass="SharingContentTableViewCell" customModule="ShareExtension" customModuleProvider="target">
@@ -158,11 +158,11 @@
                         <viewControllerLayoutGuide type="bottom" id="4lm-Ud-Ubh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="CiS-QF-zbE">
-                        <rect key="frame" x="0.0" y="0.0" width="572" height="287"/>
+                        <rect key="frame" x="0.0" y="0.0" width="572" height="512"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ifA-Cc-kCz">
-                                <rect key="frame" x="0.0" y="0.0" width="572" height="287"/>
+                                <rect key="frame" x="0.0" y="0.0" width="572" height="512"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="xPN-by-qrh">
                                     <rect key="frame" x="0.0" y="44" width="572" height="44"/>
@@ -246,19 +246,24 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJw-0M-zIZ">
-                                            <rect key="frame" x="14" y="38" width="572" height="287"/>
+                                            <rect key="frame" x="14" y="44" width="572" height="512"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="287" id="GLa-co-U5E"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="GLa-co-U5E"/>
+                                                </mask>
+                                            </variation>
                                             <connections>
                                                 <segue destination="bw3-wO-C0Y" kind="embed" id="cZq-mh-k2W"/>
                                             </connections>
                                         </containerView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="cJw-0M-zIZ" firstAttribute="top" secondItem="vaK-wa-aNa" secondAttribute="top" constant="38" id="NbJ-q7-jFn"/>
+                                        <constraint firstItem="cJw-0M-zIZ" firstAttribute="top" secondItem="vaK-wa-aNa" secondAttribute="top" constant="44" id="NbJ-q7-jFn"/>
                                         <constraint firstItem="cJw-0M-zIZ" firstAttribute="leading" secondItem="vaK-wa-aNa" secondAttribute="leading" constant="14" id="PhB-c5-roL"/>
-                                        <constraint firstAttribute="bottom" secondItem="cJw-0M-zIZ" secondAttribute="bottom" constant="275" id="hVo-Pn-Ggq"/>
+                                        <constraint firstAttribute="bottom" secondItem="cJw-0M-zIZ" secondAttribute="bottom" constant="44" id="hVo-Pn-Ggq"/>
                                         <constraint firstAttribute="trailing" secondItem="cJw-0M-zIZ" secondAttribute="trailing" constant="14" id="haG-c1-8Mz"/>
                                     </constraints>
                                 </view>

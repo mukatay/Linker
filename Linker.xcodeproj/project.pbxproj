@@ -29,6 +29,9 @@
 		71400E3F1B598A8B00E3B8CB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71400E3E1B598A8B00E3B8CB /* ProfileViewController.swift */; };
 		714D13631B7419BB003A5DB3 /* ProfileSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 714D13621B7419BB003A5DB3 /* ProfileSectionHeader.xib */; };
 		714D136B1B741ABC003A5DB3 /* ProfileSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D136A1B741ABC003A5DB3 /* ProfileSectionHeader.swift */; };
+		7156CFEF1B753D860045F642 /* MyLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7156CFEE1B753D860045F642 /* MyLoginViewController.swift */; };
+		7156CFF01B7568180045F642 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 624262BA1B4460CB00005CE3 /* Images.xcassets */; };
+		7156CFF11B757F140045F642 /* Images.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 624262BA1B4460CB00005CE3 /* Images.xcassets */; };
 		71736A0C1B55DF1500B290FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71736A0B1B55DF1500B290FC /* Main.storyboard */; };
 		71A452821B6FDD1B001CDD7A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A452811B6FDD1B001CDD7A /* StoreKit.framework */; };
 		71A452831B6FDD21001CDD7A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71E20E3C1B6FD14E00794A9E /* Security.framework */; };
@@ -202,13 +205,14 @@
 		62551B9F1B06C35B000913E4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		62551BA11B06C373000913E4 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		62A07D651B1F79F2001F6916 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
-		62C8C1E01B06BD6500DC3EA7 /* TemplateProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TemplateProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		62C8C1E01B06BD6500DC3EA7 /* Linker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Linker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67A12CAA8732AA953F28CFD7 /* Pods-ShareExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShareExtension/Pods-ShareExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		71180DBD1B73C4E400E6DA31 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		71400E2A1B5820DA00E3B8CB /* TemplateProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TemplateProject.entitlements; sourceTree = "<group>"; };
 		71400E3E1B598A8B00E3B8CB /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ViewControllers/ProfileViewController.swift; sourceTree = "<group>"; };
 		714D13621B7419BB003A5DB3 /* ProfileSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileSectionHeader.xib; sourceTree = "<group>"; };
 		714D136A1B741ABC003A5DB3 /* ProfileSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileSectionHeader.swift; path = "Views/Profile & Settings/ProfileSectionHeader.swift"; sourceTree = "<group>"; };
+		7156CFEE1B753D860045F642 /* MyLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyLoginViewController.swift; path = ViewControllers/MyLoginViewController.swift; sourceTree = "<group>"; };
 		71736A0B1B55DF1500B290FC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		71A452811B6FDD1B001CDD7A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		71A452CB1B7004AE001CDD7A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -411,7 +415,7 @@
 			isa = PBXGroup;
 			children = (
 				624262B11B4460CB00005CE3 /* TemplateProject */,
-				71E10F1E1B56E9970009A0E6 /* ShareExtension */,
+				71E10F1E1B56E9970009A0E6 /* Linker */,
 				62551B621B06BF33000913E4 /* Frameworks */,
 				62C8C1E11B06BD6500DC3EA7 /* Products */,
 				19A6BDCCEDF42D35B7B2F4F4 /* Pods */,
@@ -421,7 +425,7 @@
 		62C8C1E11B06BD6500DC3EA7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				62C8C1E01B06BD6500DC3EA7 /* TemplateProject.app */,
+				62C8C1E01B06BD6500DC3EA7 /* Linker.app */,
 				71E10F1D1B56E9970009A0E6 /* ShareExtension.appex */,
 			);
 			name = Products;
@@ -433,6 +437,7 @@
 				71400E3E1B598A8B00E3B8CB /* ProfileViewController.swift */,
 				71C9D7971B5F00BC00A1774B /* FriendsViewController.swift */,
 				71B74E901B72829100447958 /* AboutViewController.swift */,
+				7156CFEE1B753D860045F642 /* MyLoginViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -493,7 +498,7 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		71E10F1E1B56E9970009A0E6 /* ShareExtension */ = {
+		71E10F1E1B56E9970009A0E6 /* Linker */ = {
 			isa = PBXGroup;
 			children = (
 				71DFAB4D1B66AA230051D5A9 /* Views */,
@@ -503,6 +508,7 @@
 				71E10F1F1B56E9970009A0E6 /* Supporting Files */,
 				71DFAB301B630E1E0051D5A9 /* ShareExtension-Bridging-Header.h */,
 			);
+			name = Linker;
 			path = ShareExtension;
 			sourceTree = "<group>";
 		};
@@ -518,9 +524,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		62C8C1DF1B06BD6500DC3EA7 /* TemplateProject */ = {
+		62C8C1DF1B06BD6500DC3EA7 /* Linker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 62C8C1FF1B06BD6500DC3EA7 /* Build configuration list for PBXNativeTarget "TemplateProject" */;
+			buildConfigurationList = 62C8C1FF1B06BD6500DC3EA7 /* Build configuration list for PBXNativeTarget "Linker" */;
 			buildPhases = (
 				910478B35EDACEDCAACC6B9C /* Check Pods Manifest.lock */,
 				62C8C1DC1B06BD6500DC3EA7 /* Sources */,
@@ -537,9 +543,9 @@
 				62A07D711B1F7FB9001F6916 /* PBXTargetDependency */,
 				71E10F261B56E9970009A0E6 /* PBXTargetDependency */,
 			);
-			name = TemplateProject;
+			name = Linker;
 			productName = Makestagram;
-			productReference = 62C8C1E01B06BD6500DC3EA7 /* TemplateProject.app */;
+			productReference = 62C8C1E01B06BD6500DC3EA7 /* Linker.app */;
 			productType = "com.apple.product-type.application";
 		};
 		71E10F1C1B56E9970009A0E6 /* ShareExtension */ = {
@@ -599,7 +605,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 62C8C1DB1B06BD6500DC3EA7 /* Build configuration list for PBXProject "TemplateProject" */;
+			buildConfigurationList = 62C8C1DB1B06BD6500DC3EA7 /* Build configuration list for PBXProject "Linker" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -622,7 +628,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				62C8C1DF1B06BD6500DC3EA7 /* TemplateProject */,
+				62C8C1DF1B06BD6500DC3EA7 /* Linker */,
 				71E10F1C1B56E9970009A0E6 /* ShareExtension */,
 			);
 		};
@@ -703,6 +709,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7156CFF01B7568180045F642 /* Images.xcassets in Resources */,
 				71E10F241B56E9970009A0E6 /* MainInterface.storyboard in Resources */,
 				71B74E971B72B7D200447958 /* extension_js.js in Resources */,
 			);
@@ -778,6 +785,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7156CFEF1B753D860045F642 /* MyLoginViewController.swift in Sources */,
 				624262C01B4460CB00005CE3 /* AppDelegate.swift in Sources */,
 				714D136B1B741ABC003A5DB3 /* ProfileSectionHeader.swift in Sources */,
 				71B74E951B7282FB00447958 /* AboutTableViewCell.swift in Sources */,
@@ -802,6 +810,7 @@
 				71DFAB2C1B62E0300051D5A9 /* FBUser.swift in Sources */,
 				71DFAB531B66AAE60051D5A9 /* FriendsListViewController.swift in Sources */,
 				71E2009E1B6818F5004A3B92 /* SelectedFriendTableViewCell.swift in Sources */,
+				7156CFF11B757F140045F642 /* Images.xcassets in Sources */,
 				71DFAB501B66AADB0051D5A9 /* FriendsListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -944,7 +953,7 @@
 				INFOPLIST_FILE = TemplateProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_NAME = TemplateProject;
+				PRODUCT_NAME = Linker;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TemplateProject/TemplateProject-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -974,7 +983,7 @@
 				INFOPLIST_FILE = TemplateProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_NAME = TemplateProject;
+				PRODUCT_NAME = Linker;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TemplateProject/TemplateProject-Bridging-Header.h";
 			};
@@ -984,6 +993,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 67A12CAA8732AA953F28CFD7 /* Pods-ShareExtension.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1018,6 +1028,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BAD65D61CDEF181A399E5C91 /* Pods-ShareExtension.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1046,7 +1057,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		62C8C1DB1B06BD6500DC3EA7 /* Build configuration list for PBXProject "TemplateProject" */ = {
+		62C8C1DB1B06BD6500DC3EA7 /* Build configuration list for PBXProject "Linker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				62C8C1FD1B06BD6500DC3EA7 /* Debug */,
@@ -1055,7 +1066,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		62C8C1FF1B06BD6500DC3EA7 /* Build configuration list for PBXNativeTarget "TemplateProject" */ = {
+		62C8C1FF1B06BD6500DC3EA7 /* Build configuration list for PBXNativeTarget "Linker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				62C8C2001B06BD6500DC3EA7 /* Debug */,

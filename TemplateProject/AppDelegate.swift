@@ -70,9 +70,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             startViewController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
         } else {
-            let loginViewController = PFLogInViewController()
+            let loginViewController = MyLoginViewController()
             loginViewController.facebookPermissions = ["public_profile", "email", "user_friends"]
-            loginViewController.fields = .UsernameAndPassword | .LogInButton | .SignUpButton | .PasswordForgotten | .Facebook
+            loginViewController.fields = .Facebook
             loginViewController.delegate = parseLoginHelper
             loginViewController.signUpController?.delegate = parseLoginHelper
             

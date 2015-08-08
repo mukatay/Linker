@@ -8,3 +8,4 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <FBSDKShareKit/FBSDKShareOpenGraphObject.h>
 #import <FBSDKShareKit/FBSDKSharing.h>
+#import <QuartzCore/QuartzCore.h>

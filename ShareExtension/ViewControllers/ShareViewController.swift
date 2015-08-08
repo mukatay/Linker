@@ -41,7 +41,7 @@ class ShareViewController: UIViewController{
         
         if(!Parse.isLocalDatastoreEnabled()){
             Parse.enableLocalDatastore()
-            Parse.enableDataSharingWithApplicationGroupIdentifier("group.mukatay.TestShareDefaults", containingApplication: "Make-School.TemplateProject.ShareExtension")
+            Parse.enableDataSharingWithApplicationGroupIdentifier("group.mukatay.TestShareDefaults", containingApplication: "Make-School.Linker.ShareExtension")
             Parse.setApplicationId("ErcD8FgZDmstg9zQfZ2HVCrJ1JwXFWPCdFZerCgJ", clientKey: "bybCVI9UELUynBuJqSWPxNxTJ3AeFJM1zA9oYVF4")
             PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(nil)
         }
@@ -92,7 +92,7 @@ class ShareViewController: UIViewController{
                                         if let user = PFUser.currentUser() {
                                             let object = FBSDKShareOpenGraphObject(properties: properties)
                                             let action = FBSDKShareOpenGraphAction(type: "news.publishes", object: object, key: "article")
-                                            action.setString("true", forKey: "fb:explicitly_shared")
+//                                            action.setString("true", forKey: "fb:explicitly_shared")
                                             let content = FBSDKShareOpenGraphContent()
                                             content.action = action
                                             
@@ -105,6 +105,7 @@ class ShareViewController: UIViewController{
                                             
                                             dispatch_async(dispatch_get_main_queue()) {
                                                 let share = FBSDKShareAPI.shareWithContent(content, delegate: self)
+                                                self.extensionContext?.completeRequestReturningItems(nil, completionHandler: nil)
                                             }
                                         }
                                     }
@@ -118,8 +119,7 @@ class ShareViewController: UIViewController{
     }
     
     @IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
-        var extensionItem = NSExtensionItem()
-        self.extensionContext?.completeRequestReturningItems([extensionItem], completionHandler: nil)
+        self.extensionContext?.completeRequestReturningItems(nil, completionHandler: nil)
     }
     
     func configurationItems() -> [AnyObject]! {
@@ -217,14 +217,17 @@ extension ShareViewController: UITableViewDataSource, UITableViewDelegate {
 extension ShareViewController : FBSDKSharingDelegate
 {
     func sharer(sharer: FBSDKSharing!, didCompleteWithResults results: [NSObject : AnyObject]!) {
+        
         println("Sharing completed with results: \(results)")
     }
     
     func sharer(sharer: FBSDKSharing!, didFailWithError error: NSError!) {
+        
         println("Sharing failed with error: \(error)")
     }
     
     func sharerDidCancel(sharer: FBSDKSharing!) {
+        
         println("Sharing canceled")
     }
 }

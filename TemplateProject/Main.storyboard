@@ -8,7 +8,7 @@
         <!--Friends-->
         <scene sceneID="6hJ-Xl-iqz">
             <objects>
-                <viewController id="SXi-U7-TAX" customClass="FriendsViewController" customModule="TemplateProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SXi-U7-TAX" customClass="FriendsViewController" customModule="Linker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a7j-gC-O2k"/>
                         <viewControllerLayoutGuide type="bottom" id="d5T-xq-byW"/>
@@ -26,7 +26,7 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" id="n8j-0a-9wi" userLabel="FriendCell" customClass="FriendTableViewCell" customModule="TemplateProject" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" id="n8j-0a-9wi" userLabel="FriendCell" customClass="FriendTableViewCell" customModule="Linker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n8j-0a-9wi" id="Vcf-LB-e6p">
@@ -73,7 +73,7 @@
         <!--Profile-->
         <scene sceneID="SNM-cN-52P">
             <objects>
-                <viewController id="R8d-nY-mZu" userLabel="Profile" customClass="ProfileViewController" customModule="TemplateProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="R8d-nY-mZu" userLabel="Profile" customClass="ProfileViewController" customModule="Linker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="syZ-Jb-jwG"/>
                         <viewControllerLayoutGuide type="bottom" id="RhV-Qp-ze6"/>
@@ -120,7 +120,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="UserProfileCell" rowHeight="50" id="048-Rb-qne" customClass="ProfileTableViewCell" customModule="TemplateProject" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="UserProfileCell" rowHeight="50" id="048-Rb-qne" customClass="ProfileTableViewCell" customModule="Linker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="048-Rb-qne" id="lqO-28-HVq">
@@ -172,7 +172,7 @@
         <!--About-->
         <scene sceneID="zu8-sb-svk">
             <objects>
-                <viewController storyboardIdentifier="About" id="edE-QI-Bjy" customClass="AboutViewController" customModule="TemplateProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="About" id="edE-QI-Bjy" customClass="AboutViewController" customModule="Linker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c4C-2W-E4H"/>
                         <viewControllerLayoutGuide type="bottom" id="mwj-0l-LFe"/>
@@ -185,7 +185,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="aboutCell" id="OnL-WP-CXI" customClass="AboutTableViewCell" customModule="TemplateProject" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="aboutCell" id="OnL-WP-CXI" customClass="AboutTableViewCell" customModule="Linker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OnL-WP-CXI" id="9YM-ye-Ax9">
