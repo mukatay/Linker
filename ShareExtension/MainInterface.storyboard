@@ -256,7 +256,7 @@
                                                 </mask>
                                             </variation>
                                             <connections>
-                                                <segue destination="bw3-wO-C0Y" kind="embed" id="cZq-mh-k2W"/>
+                                                <segue destination="bw3-wO-C0Y" kind="embed" identifier="showShare" id="cZq-mh-k2W"/>
                                             </connections>
                                         </containerView>
                                     </subviews>
@@ -298,7 +298,7 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="fKj-tj-QhL" kind="relationship" relationship="rootViewController" id="0TH-y4-IJB"/>
-                        <segue destination="Efv-NG-yy8" kind="presentation" modalPresentationStyle="overCurrentContext" id="Ogd-xa-4h6"/>
+                        <segue destination="Efv-NG-yy8" kind="presentation" identifier="showContainer" modalPresentationStyle="overCurrentContext" id="Ogd-xa-4h6"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r68-lI-Tdm" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -944,8 +944,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)/Frameworks/ConvenienceKit/ConvenienceKit/Frameworks",
-					"/Users/Darkhan/Downloads/parse-library-1-2",
-					"/Users/Darkhan/Downloads/parse-library-1-3",
 					"/Users/Darkhan/Downloads/parse-library-1",
 					"$(PROJECT_DIR)",
 					/Users/Darkhan/Documents/FacebookSDK,
@@ -957,6 +955,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TemplateProject/TemplateProject-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -974,8 +973,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)/Frameworks/ConvenienceKit/ConvenienceKit/Frameworks",
-					"/Users/Darkhan/Downloads/parse-library-1-2",
-					"/Users/Darkhan/Downloads/parse-library-1-3",
 					"/Users/Darkhan/Downloads/parse-library-1",
 					"$(PROJECT_DIR)",
 					/Users/Darkhan/Documents/FacebookSDK,
@@ -986,6 +983,7 @@
 				PRODUCT_NAME = Linker;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TemplateProject/TemplateProject-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1001,8 +999,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
-					"/Users/Darkhan/Downloads/parse-library-1-2",
-					"/Users/Darkhan/Downloads/parse-library-1-3",
 					/Users/Darkhan/.Trash,
 					"/Users/Darkhan/Downloads/parse-library-1",
 					"$(PROJECT_DIR)",
@@ -1021,6 +1017,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "ShareExtension/ShareExtension-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1036,8 +1033,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
-					"/Users/Darkhan/Downloads/parse-library-1-2",
-					"/Users/Darkhan/Downloads/parse-library-1-3",
 					/Users/Darkhan/.Trash,
 					"/Users/Darkhan/Downloads/parse-library-1",
 					"$(PROJECT_DIR)",
@@ -1051,6 +1046,7 @@
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "ShareExtension/ShareExtension-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
