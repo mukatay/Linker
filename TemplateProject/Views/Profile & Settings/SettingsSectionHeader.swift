@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileSectionHeader: UITableViewHeaderFooterView {
+class SettingsSectionHeader: UITableViewHeaderFooterView {
 
     @IBOutlet weak var titleLabel: UILabel!
     

@@ -25,6 +25,9 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.layer.cornerRadius = 6
+        view.layer.masksToBounds = true
+        
         let backItem = UIBarButtonItem(title: "Back", style: .Plain, target: nil, action: nil)
         backItem.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir Next", size: 18)!, NSForegroundColorAttributeName: UIColor.whiteColor()], forState: .Normal)
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backItem
@@ -38,8 +41,7 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UITabl
         self.tableView.allowsMultipleSelection = true
         
         if let fbData = NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")!.objectForKey("FBData") as? [AnyObject] {
-//            println("FBFriends are: \(fbData)")
-            
+
             for object in fbData {
                 if let username = object["name"] as? String, id = object["id"] as? String {
                     let picture = object["picture"] as? [String: AnyObject]
@@ -51,13 +53,27 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UITabl
             }
             self.tableView.reloadData()
         }
+        
+        drawNavBarCorners()
     }
     
     override func viewWillAppear(animated: Bool) {
         navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Avenir Next", size: 19)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
-        
     }
 
+    func drawNavBarCorners() {
+        var capa = self.navigationController?.navigationBar.layer
+        
+        var bounds = capa?.bounds
+        var maskPath = UIBezierPath(roundedRect: bounds!, byRoundingCorners: UIRectCorner.TopLeft | UIRectCorner.TopRight, cornerRadii: CGSizeMake(5.0, 5.0))
+        
+        var maskLayer = CAShapeLayer()
+        maskLayer.frame = bounds!
+        maskLayer.path = maskPath.CGPath
+        
+        capa?.addSublayer(maskLayer)
+        capa!.mask = maskLayer
+    }
 }
 
 extension FriendsListViewController: UITableViewDataSource {

@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class ProfileTableViewCell: UITableViewCell {
+class SettingsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
 }

@@ -120,14 +120,14 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="UserProfileCell" rowHeight="50" id="048-Rb-qne" customClass="ProfileTableViewCell" customModule="Linker" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingsCell" rowHeight="50" id="048-Rb-qne" customClass="SettingsTableViewCell" customModule="Linker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="048-Rb-qne" id="lqO-28-HVq">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XL3-xf-zWv">
-                                                    <rect key="frame" x="8" y="16" width="584" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XL3-xf-zWv">
+                                                    <rect key="frame" x="8" y="13" width="584" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="ibE-Ja-dM8"/>
                                                     </constraints>
@@ -253,7 +253,7 @@
         <scene sceneID="kpZ-Gp-rov">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hdw-dE-HHd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="ProfileIcon" selectedImage="SelectedProfile" id="g3T-t7-woc" userLabel="Profile">
+                    <tabBarItem key="tabBarItem" title="" image="ProfileIcon" id="g3T-t7-woc" userLabel="Profile">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="SelectedProfile"/>
@@ -278,7 +278,7 @@
         <scene sceneID="q5c-eu-HgZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Emv-15-YLM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="FriendsIcon" selectedImage="SelectedFriends" id="nav-m4-9CE">
+                    <tabBarItem key="tabBarItem" title="" image="FriendsIcon" id="nav-m4-9CE" userLabel="Friends">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="SelectedFriends"/>

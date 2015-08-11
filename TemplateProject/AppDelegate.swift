@@ -50,6 +50,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = tabBarController
     }
     
+    func showLoginInterface() {
+        let loginViewController = MyLoginViewController()
+        loginViewController.facebookPermissions = ["public_profile", "email", "user_friends"]
+        loginViewController.fields = .Facebook
+        loginViewController.delegate = parseLoginHelper
+        loginViewController.signUpController?.delegate = parseLoginHelper
+        
+        self.window?.rootViewController = loginViewController
+    }
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         Parse.enableDataSharingWithApplicationGroupIdentifier("group.mukatay.TestShareDefaults")
@@ -63,25 +73,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let user = PFUser.currentUser()
         
-        let startViewController: UIViewController;
-        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+
         if (user != nil) {
-            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            startViewController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
+            let startViewController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
+            self.window?.rootViewController = startViewController
         } else {
-            let loginViewController = MyLoginViewController()
-            loginViewController.facebookPermissions = ["public_profile", "email", "user_friends"]
-            loginViewController.fields = .Facebook
-            loginViewController.delegate = parseLoginHelper
-            loginViewController.signUpController?.delegate = parseLoginHelper
-            
-            startViewController = loginViewController
+            showLoginInterface()
         }
         
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = startViewController;
         self.window?.makeKeyAndVisible()
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }

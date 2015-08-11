@@ -31,6 +31,7 @@ class ProfileViewController: UIViewController, MFMailComposeViewControllerDelega
    
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.allowsSelection = true
         
         tableView.registerNib(UINib(nibName: "ProfileSectionHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "ProfileSectionHeader")
     }
@@ -61,8 +62,7 @@ class ProfileViewController: UIViewController, MFMailComposeViewControllerDelega
     
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
-        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
-        
+        mailComposerVC.mailComposeDelegate = self
         mailComposerVC.setToRecipients(["mukatay.darhan@gmail.com"])
         mailComposerVC.setSubject("Linker feedback")
         
@@ -79,10 +79,10 @@ class ProfileViewController: UIViewController, MFMailComposeViewControllerDelega
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("UserProfileCell", forIndexPath: indexPath) as! ProfileTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("SettingsCell", forIndexPath: indexPath) as! SettingsTableViewCell
         let value = sectionData[indexPath.section][indexPath.row]
         cell.titleLabel.text = value
-        
+        cell.selectionStyle = UITableViewCellSelectionStyle.Gray
         return cell
     }
     
@@ -99,7 +99,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("ProfileSectionHeader") as! ProfileSectionHeader
+        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("ProfileSectionHeader") as! SettingsSectionHeader
         headerView.titleLabel.text = sectionTitles[section]
         return headerView
     }
@@ -124,14 +124,15 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             UIApplication.sharedApplication().openURL(appStoreURL!)
             
         }else if indexPath.row == 3 {
+            
             PFUser.logOut()
             
-            let loginViewController = MyLoginViewController()
-            self.presentViewController(loginViewController, animated: true, completion: nil)
+            if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                appDelegate.showLoginInterface()
+            }
         }
-        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
-    
 }
 
 

@@ -28,7 +28,7 @@
 		71180DBE1B73C4E400E6DA31 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71180DBD1B73C4E400E6DA31 /* Foundation.framework */; };
 		71400E3F1B598A8B00E3B8CB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71400E3E1B598A8B00E3B8CB /* ProfileViewController.swift */; };
 		714D13631B7419BB003A5DB3 /* ProfileSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 714D13621B7419BB003A5DB3 /* ProfileSectionHeader.xib */; };
-		714D136B1B741ABC003A5DB3 /* ProfileSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D136A1B741ABC003A5DB3 /* ProfileSectionHeader.swift */; };
+		714D136B1B741ABC003A5DB3 /* SettingsSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D136A1B741ABC003A5DB3 /* SettingsSectionHeader.swift */; };
 		7156CFEF1B753D860045F642 /* MyLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7156CFEE1B753D860045F642 /* MyLoginViewController.swift */; };
 		7156CFF01B7568180045F642 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 624262BA1B4460CB00005CE3 /* Images.xcassets */; };
 		7156CFF11B757F140045F642 /* Images.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 624262BA1B4460CB00005CE3 /* Images.xcassets */; };
@@ -54,7 +54,7 @@
 		71A452E01B701BA2001CDD7A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A452D81B701BA2001CDD7A /* FBSDKShareKit.framework */; };
 		71A452E31B701BE8001CDD7A /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A452E11B701BE8001CDD7A /* ShareViewController.swift */; };
 		71B74E911B72829100447958 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B74E901B72829100447958 /* AboutViewController.swift */; };
-		71B74E931B7282D100447958 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B74E921B7282D100447958 /* ProfileTableViewCell.swift */; };
+		71B74E931B7282D100447958 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B74E921B7282D100447958 /* SettingsTableViewCell.swift */; };
 		71B74E951B7282FB00447958 /* AboutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B74E941B7282FB00447958 /* AboutTableViewCell.swift */; };
 		71B74E971B72B7D200447958 /* extension_js.js in Resources */ = {isa = PBXBuildFile; fileRef = 71B74E961B72B7D200447958 /* extension_js.js */; };
 		71C9D7981B5F00BC00A1774B /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9D7971B5F00BC00A1774B /* FriendsViewController.swift */; };
@@ -211,7 +211,7 @@
 		71400E2A1B5820DA00E3B8CB /* TemplateProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TemplateProject.entitlements; sourceTree = "<group>"; };
 		71400E3E1B598A8B00E3B8CB /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ViewControllers/ProfileViewController.swift; sourceTree = "<group>"; };
 		714D13621B7419BB003A5DB3 /* ProfileSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileSectionHeader.xib; sourceTree = "<group>"; };
-		714D136A1B741ABC003A5DB3 /* ProfileSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileSectionHeader.swift; path = "Views/Profile & Settings/ProfileSectionHeader.swift"; sourceTree = "<group>"; };
+		714D136A1B741ABC003A5DB3 /* SettingsSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsSectionHeader.swift; path = "Views/Profile & Settings/SettingsSectionHeader.swift"; sourceTree = "<group>"; };
 		7156CFEE1B753D860045F642 /* MyLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyLoginViewController.swift; path = ViewControllers/MyLoginViewController.swift; sourceTree = "<group>"; };
 		71736A0B1B55DF1500B290FC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		71A452811B6FDD1B001CDD7A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -226,7 +226,7 @@
 		71A452D81B701BA2001CDD7A /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		71A452E11B701BE8001CDD7A /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareViewController.swift; path = ViewControllers/ShareViewController.swift; sourceTree = "<group>"; };
 		71B74E901B72829100447958 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = ViewControllers/AboutViewController.swift; sourceTree = "<group>"; };
-		71B74E921B7282D100447958 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileTableViewCell.swift; path = "Views/Profile & Settings/ProfileTableViewCell.swift"; sourceTree = "<group>"; };
+		71B74E921B7282D100447958 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewCell.swift; path = "Views/Profile & Settings/SettingsTableViewCell.swift"; sourceTree = "<group>"; };
 		71B74E941B7282FB00447958 /* AboutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutTableViewCell.swift; path = "Views/Profile & Settings/AboutTableViewCell.swift"; sourceTree = "<group>"; };
 		71B74E961B72B7D200447958 /* extension_js.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = extension_js.js; sourceTree = "<group>"; };
 		71C9D7971B5F00BC00A1774B /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendsViewController.swift; path = ViewControllers/FriendsViewController.swift; sourceTree = "<group>"; };
@@ -326,7 +326,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		624262B11B4460CB00005CE3 /* TemplateProject */ = {
+		624262B11B4460CB00005CE3 /* Linker */ = {
 			isa = PBXGroup;
 			children = (
 				71C9D7A81B6161EC00A1774B /* Model */,
@@ -341,6 +341,7 @@
 				624262BB1B4460CB00005CE3 /* Info.plist */,
 				624262BC1B4460CB00005CE3 /* TemplateProject-Bridging-Header.h */,
 			);
+			name = Linker;
 			path = TemplateProject;
 			sourceTree = "<group>";
 		};
@@ -414,8 +415,8 @@
 		62C8C1D71B06BD6500DC3EA7 = {
 			isa = PBXGroup;
 			children = (
-				624262B11B4460CB00005CE3 /* TemplateProject */,
-				71E10F1E1B56E9970009A0E6 /* Linker */,
+				624262B11B4460CB00005CE3 /* Linker */,
+				71E10F1E1B56E9970009A0E6 /* Linker-Share-extension */,
 				62551B621B06BF33000913E4 /* Frameworks */,
 				62C8C1E11B06BD6500DC3EA7 /* Products */,
 				19A6BDCCEDF42D35B7B2F4F4 /* Pods */,
@@ -454,10 +455,10 @@
 		71400E3D1B598A4000E3B8CB /* Profile & Settings */ = {
 			isa = PBXGroup;
 			children = (
-				714D136A1B741ABC003A5DB3 /* ProfileSectionHeader.swift */,
-				714D13621B7419BB003A5DB3 /* ProfileSectionHeader.xib */,
-				71B74E921B7282D100447958 /* ProfileTableViewCell.swift */,
 				71B74E941B7282FB00447958 /* AboutTableViewCell.swift */,
+				71B74E921B7282D100447958 /* SettingsTableViewCell.swift */,
+				714D136A1B741ABC003A5DB3 /* SettingsSectionHeader.swift */,
+				714D13621B7419BB003A5DB3 /* ProfileSectionHeader.xib */,
 			);
 			name = "Profile & Settings";
 			sourceTree = "<group>";
@@ -498,7 +499,7 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		71E10F1E1B56E9970009A0E6 /* Linker */ = {
+		71E10F1E1B56E9970009A0E6 /* Linker-Share-extension */ = {
 			isa = PBXGroup;
 			children = (
 				71DFAB4D1B66AA230051D5A9 /* Views */,
@@ -508,7 +509,7 @@
 				71E10F1F1B56E9970009A0E6 /* Supporting Files */,
 				71DFAB301B630E1E0051D5A9 /* ShareExtension-Bridging-Header.h */,
 			);
-			name = Linker;
+			name = "Linker-Share-extension";
 			path = ShareExtension;
 			sourceTree = "<group>";
 		};
@@ -787,11 +788,11 @@
 			files = (
 				7156CFEF1B753D860045F642 /* MyLoginViewController.swift in Sources */,
 				624262C01B4460CB00005CE3 /* AppDelegate.swift in Sources */,
-				714D136B1B741ABC003A5DB3 /* ProfileSectionHeader.swift in Sources */,
+				714D136B1B741ABC003A5DB3 /* SettingsSectionHeader.swift in Sources */,
 				71B74E951B7282FB00447958 /* AboutTableViewCell.swift in Sources */,
 				624262C41B4460CB00005CE3 /* ParseLoginHelper.swift in Sources */,
 				71400E3F1B598A8B00E3B8CB /* ProfileViewController.swift in Sources */,
-				71B74E931B7282D100447958 /* ProfileTableViewCell.swift in Sources */,
+				71B74E931B7282D100447958 /* SettingsTableViewCell.swift in Sources */,
 				71B74E911B72829100447958 /* AboutViewController.swift in Sources */,
 				71C9D7A31B6002C300A1774B /* FriendTableViewCell.swift in Sources */,
 				71C9D7981B5F00BC00A1774B /* FriendsViewController.swift in Sources */,

@@ -21,6 +21,8 @@ class ShareViewController: UIViewController{
     var friendsArray: [FBUser]
     var friendsFbId: [String]
     
+    var itemProperties: [ NSObject: AnyObject]?
+    
     var mostRecentFriendsViewController: FriendsListViewController?
     
     required init(coder aDecoder: NSCoder) {
@@ -30,12 +32,21 @@ class ShareViewController: UIViewController{
     }
     
     func isContentValid() -> Bool {
-        // Do validation of contentText and/or NSExtensionContext attachments here
+
         return true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.layer.cornerRadius = 6
+        view.layer.masksToBounds = true
+        
+        if friendsArray.isEmpty {
+            self.navigationItem.rightBarButtonItem?.enabled = false
+        } else {
+            self.navigationItem.rightBarButtonItem?.enabled = true
+        }
 
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
@@ -48,10 +59,26 @@ class ShareViewController: UIViewController{
         
         tableView.dataSource = self
         tableView.delegate = self
+        drawNavBarCorners()
+        
+        readItemFromExtension()
     }
     
-    @IBAction func shareButton(sender: AnyObject) {
+    func drawNavBarCorners() {
+        var capa = self.navigationController?.navigationBar.layer
         
+        var bounds = capa?.bounds
+        var maskPath = UIBezierPath(roundedRect: bounds!, byRoundingCorners: UIRectCorner.TopLeft | UIRectCorner.TopRight, cornerRadii: CGSizeMake(6.0, 6.0))
+        
+        var maskLayer = CAShapeLayer()
+        maskLayer.frame = bounds!
+        maskLayer.path = maskPath.CGPath
+        
+        capa?.addSublayer(maskLayer)
+        capa!.mask = maskLayer
+    }
+    
+    func readItemFromExtension() {
         for item: AnyObject in self.extensionContext!.inputItems {
             
             let inputItem = item as! NSExtensionItem
@@ -73,7 +100,7 @@ class ShareViewController: UIViewController{
                                 var pageTitle = (results["title"] ?? "No title") as! String
                                 var pageURL = (results["url"] ?? "default") as! String
                                 
-                                var properties = [
+                                self.itemProperties = [
                                     "og:type": "article",
                                     "og:url": pageURL,
                                     "og:title": pageTitle,
@@ -81,37 +108,45 @@ class ShareViewController: UIViewController{
                                     "og:image:url": pageImageURL
                                 ]
                                 
-                                if let serializedAccessToken = NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.objectForKey("FacebookAccessToken") as? NSData
-                                {
-                                    if let accessToken = NSKeyedUnarchiver.unarchiveObjectWithData(serializedAccessToken) as? FBSDKAccessToken
-                                    {
-                                        println("Unarchived access token with permissions: \(accessToken.permissions)")
-                                        
-                                        FBSDKAccessToken.setCurrentAccessToken(accessToken)
-                                        
-                                        if let user = PFUser.currentUser() {
-                                            let object = FBSDKShareOpenGraphObject(properties: properties)
-                                            let action = FBSDKShareOpenGraphAction(type: "news.publishes", object: object, key: "article")
-//                                            action.setString("true", forKey: "fb:explicitly_shared")
-                                            let content = FBSDKShareOpenGraphContent()
-                                            content.action = action
-                                            
-                                            for  var index = 0; index < self.friendsArray.count; index++ {
-                                                let id = self.friendsArray[index].fbId
-                                                self.friendsFbId.append(id)
-                                            }
-                                            content.peopleIDs = self.friendsFbId
-                                            content.previewPropertyName = "article"
-                                            
-                                            dispatch_async(dispatch_get_main_queue()) {
-                                                let share = FBSDKShareAPI.shareWithContent(content, delegate: self)
-                                                self.extensionContext?.completeRequestReturningItems(nil, completionHandler: nil)
-                                            }
-                                        }
-                                    }
-                                }
+                                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                    self.tableView.reloadData()
+                                })
                             }
                         }
+                    }
+                }
+            }
+        }
+
+    }
+    
+    @IBAction func shareButton(sender: AnyObject) {
+
+        if let serializedAccessToken = NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.objectForKey("FacebookAccessToken") as? NSData
+        {
+            if let accessToken = NSKeyedUnarchiver.unarchiveObjectWithData(serializedAccessToken) as? FBSDKAccessToken
+            {
+                println("Unarchived access token with permissions: \(accessToken.permissions)")
+                
+                FBSDKAccessToken.setCurrentAccessToken(accessToken)
+                
+                if let user = PFUser.currentUser(), properties = itemProperties {
+                    let object = FBSDKShareOpenGraphObject(properties: properties)
+                    let action = FBSDKShareOpenGraphAction(type: "news.publishes", object: object, key: "article")
+                    action.setString("true", forKey: "fb:explicitly_shared")
+                    let content = FBSDKShareOpenGraphContent()
+                    content.action = action
+                    
+                    for  var index = 0; index < self.friendsArray.count; index++ {
+                        let id = self.friendsArray[index].fbId
+                        self.friendsFbId.append(id)
+                    }
+                    content.peopleIDs = self.friendsFbId
+                    content.previewPropertyName = "article"
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        let share = FBSDKShareAPI.shareWithContent(content, delegate: self)
+                        self.extensionContext?.completeRequestReturningItems(nil, completionHandler: nil)
                     }
                 }
             }
@@ -126,7 +161,7 @@ class ShareViewController: UIViewController{
         return []
         
     }
-    
+ 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "show") {
             
@@ -141,11 +176,14 @@ class ShareViewController: UIViewController{
     }
     
     override func viewWillAppear(animated: Bool) {
-        
         if let friendsVC = mostRecentFriendsViewController {
             self.friendsArray = friendsVC.getSelectedUsers()
             self.tableView.reloadData()
             mostRecentFriendsViewController = nil
+        }
+        
+        if !friendsArray.isEmpty {
+            self.navigationItem.rightBarButtonItem?.enabled = true
         }
     }
 
@@ -167,6 +205,12 @@ extension ShareViewController: UITableViewDataSource, UITableViewDelegate {
             cell.linkTitle.text = title?.string
             cell.linkTitle.sizeToFit()
             cell.selectionStyle = .None
+            
+            if let imageURLString = self.itemProperties?["og:image:url"] as? String, url = NSURL(string: imageURLString) {
+                if let imageURL = NSURL(string: imageURLString), imageData = NSData(contentsOfURL: imageURL) {
+                    cell.linkImage.sd_setImageWithURL(url)
+                }
+            }
             
             return cell
         } else if indexPath.row == 1 {
