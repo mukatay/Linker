@@ -16,6 +16,8 @@ class ProfileViewController: UIViewController, MFMailComposeViewControllerDelega
     
     var sectionData = [["About", "Send Feedback", "Review on the App Store", "Log Out" ]]
 
+    @IBOutlet weak var headerView: UIView!
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var profileImage: UIImageView!
@@ -74,6 +76,20 @@ class ProfileViewController: UIViewController, MFMailComposeViewControllerDelega
         sendMailErrorAlert.show()
     }
 
+//    func scrollViewDidScroll(scrollView: UIScrollView) {
+//        var offset = scrollView.contentOffset.y
+//        var avatarTransform = CATransform3DIdentity
+//        var headerTransform = CATransform3DIdentity
+//        
+//        if offset < 0 {
+//            let headerScaleFactor:CGFloat = -(offset) / headerView.bounds.height
+//            let headerSizevariation = ((headerView.bounds.height * (1.0 + headerScaleFactor)) - headerView.bounds.height)/2.0
+//            headerTransform = CATransform3DTranslate(headerTransform, 0, headerSizevariation, 0)
+//            headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0)
+//            
+//            headerView.layer.transform = headerTransform
+//        }
+//    }
 }
 
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {

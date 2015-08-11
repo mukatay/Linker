@@ -160,6 +160,7 @@
                     <navigationItem key="navigationItem" title="Profile" id="N1Z-dh-F0L"/>
                     <connections>
                         <outlet property="emailAddress" destination="dwf-al-Tsg" id="XgN-Zf-Fwc"/>
+                        <outlet property="headerView" destination="x4e-jC-zR1" id="vni-Jh-VmU"/>
                         <outlet property="profileImage" destination="ldH-Fz-pVo" id="eMi-aD-y9p"/>
                         <outlet property="tableView" destination="RwN-Ze-Lvb" id="b6U-a5-m61"/>
                         <outlet property="userName" destination="Rhd-Z7-tgN" id="L9b-75-UPn"/>

@@ -163,6 +163,7 @@ class ShareViewController: UIViewController{
     }
  
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        self.view.backgroundColor = UIColor.clearColor()
         if (segue.identifier == "show") {
             
             let friendListViewController = segue.destinationViewController as! FriendsListViewController
@@ -176,6 +177,8 @@ class ShareViewController: UIViewController{
     }
     
     override func viewWillAppear(animated: Bool) {
+        self.view.backgroundColor = UIColor.whiteColor()
+        
         if let friendsVC = mostRecentFriendsViewController {
             self.friendsArray = friendsVC.getSelectedUsers()
             self.tableView.reloadData()

@@ -27,7 +27,8 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UITabl
         
         view.layer.cornerRadius = 6
         view.layer.masksToBounds = true
-        
+        drawNavBarCorners()
+
         let backItem = UIBarButtonItem(title: "Back", style: .Plain, target: nil, action: nil)
         backItem.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir Next", size: 18)!, NSForegroundColorAttributeName: UIColor.whiteColor()], forState: .Normal)
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backItem
@@ -54,7 +55,6 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UITabl
             self.tableView.reloadData()
         }
         
-        drawNavBarCorners()
     }
     
     override func viewWillAppear(animated: Bool) {
