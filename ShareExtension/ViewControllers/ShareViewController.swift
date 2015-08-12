@@ -38,10 +38,7 @@ class ShareViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.layer.cornerRadius = 6
-        view.layer.masksToBounds = true
-        
+
         if friendsArray.isEmpty {
             self.navigationItem.rightBarButtonItem?.enabled = false
         } else {
@@ -62,7 +59,7 @@ class ShareViewController: UIViewController{
         tableView.dataSource = self
         tableView.delegate = self
         drawNavBarCorners()
-        
+
         readItemFromExtension()
     }
     
@@ -76,7 +73,6 @@ class ShareViewController: UIViewController{
         maskLayer.frame = bounds!
         maskLayer.path = maskPath.CGPath
         
-        capa?.addSublayer(maskLayer)
         capa!.mask = maskLayer
     }
     
@@ -186,10 +182,18 @@ class ShareViewController: UIViewController{
             self.friendsArray = friendsVC.getSelectedUsers()
             self.tableView.reloadData()
             mostRecentFriendsViewController = nil
+            
+            if !friendsArray.isEmpty {
+                self.navigationItem.rightBarButtonItem?.enabled = true
+            } else {
+                self.navigationItem.rightBarButtonItem?.enabled = false
+            }
+            
         }
-        
-        if !friendsArray.isEmpty {
-            self.navigationItem.rightBarButtonItem?.enabled = true
+
+        if let superview = view.superview {
+            superview.layer.cornerRadius = 6
+            superview.layer.masksToBounds = true
         }
     }
 }
@@ -214,6 +218,15 @@ extension ShareViewController: UITableViewDataSource, UITableViewDelegate {
             if let imageURLString = self.itemProperties?["og:image:url"] as? String, url = NSURL(string: imageURLString) {
                 if let imageURL = NSURL(string: imageURLString), imageData = NSData(contentsOfURL: imageURL) {
                     cell.linkImage.sd_setImageWithURL(url)
+                    
+                    var borderLayer = CALayer()
+                    var borderFrame = CGRectMake(0, 0, cell.linkImage.frame.size.width, cell.linkImage.frame.size.height)
+                    borderLayer.backgroundColor = UIColor.clearColor().CGColor
+                    borderLayer.frame = borderFrame
+                    borderLayer.cornerRadius = 0
+                    borderLayer.borderWidth = 1
+                    borderLayer.borderColor = UIColor(red: 192/255.0, green: 183/255.0, blue: 183/255.0, alpha: 1.0).CGColor
+                    cell.linkImage.layer.addSublayer(borderLayer)
                 }
             }
             

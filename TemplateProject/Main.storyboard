@@ -32,6 +32,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n8j-0a-9wi" id="Vcf-LB-e6p">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0nT-n9-avX">
+                                                    <rect key="frame" x="16" y="2" width="40" height="40"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nwb-qg-fyu">
                                                     <rect key="frame" x="83" y="11" width="338" height="21"/>
                                                     <constraints>
@@ -41,26 +44,13 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0nT-n9-avX">
-                                                    <rect key="frame" x="16" y="2" width="40" height="40"/>
-                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="centerY" secondItem="Nwb-qg-fyu" secondAttribute="centerY" id="9ef-SW-Iti"/>
-                                                <constraint firstItem="0nT-n9-avX" firstAttribute="top" secondItem="Vcf-LB-e6p" secondAttribute="topMargin" constant="-6" id="BY0-2H-Ym9"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="0nT-n9-avX" secondAttribute="bottom" constant="-6" id="Sg5-r1-2sh"/>
-                                                <constraint firstAttribute="centerY" secondItem="0nT-n9-avX" secondAttribute="centerY" id="ZLD-A7-w5W"/>
-                                                <constraint firstItem="0nT-n9-avX" firstAttribute="leading" secondItem="Vcf-LB-e6p" secondAttribute="leadingMargin" constant="8" id="ere-XO-mme"/>
-                                                <constraint firstItem="Nwb-qg-fyu" firstAttribute="leading" secondItem="0nT-n9-avX" secondAttribute="trailing" constant="27" id="idf-26-KtI"/>
                                                 <constraint firstItem="Nwb-qg-fyu" firstAttribute="top" secondItem="Vcf-LB-e6p" secondAttribute="topMargin" constant="3" id="sKO-if-sDw"/>
                                                 <constraint firstItem="Nwb-qg-fyu" firstAttribute="leading" secondItem="Vcf-LB-e6p" secondAttribute="leading" constant="83" id="vdU-GF-G6E"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="ZLD-A7-w5W"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="friendPicture" destination="0nT-n9-avX" id="G6O-nM-LBC"/>

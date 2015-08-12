@@ -45,11 +45,12 @@ class ProfileViewController: UIViewController, MFMailComposeViewControllerDelega
         emailAddress.text = user!.email
         
         if let urlString = user?.valueForKey("profilePicture") as? String, url = NSURL(string: urlString) {
-            self.profileImage.layer.masksToBounds = true;
-            self.profileImage.layer.cornerRadius = self.profileImage.frame.height/2;
+            self.profileImage.layer.masksToBounds = true
+            self.profileImage.layer.cornerRadius = self.profileImage.frame.height/2
             profileImage.sd_setImageWithURL(url)
 //            profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NAME"))
         }
+        setBorder()
     }
     
     
@@ -89,6 +90,17 @@ class ProfileViewController: UIViewController, MFMailComposeViewControllerDelega
 //            headerView.layer.transform = headerTransform
 //        }
 //    }
+    
+    func setBorder() {
+        var borderLayer = CALayer()
+        var borderFrame = CGRectMake(0, 0, profileImage.frame.size.width, profileImage.frame.size.height)
+        borderLayer.backgroundColor = UIColor.clearColor().CGColor
+        borderLayer.frame = borderFrame
+        borderLayer.cornerRadius = self.profileImage.frame.height/2
+        borderLayer.borderWidth = 1.5
+        borderLayer.borderColor = UIColor(red: 39/255.0, green: 174/255.0, blue: 96/255.0, alpha: 1.0).CGColor
+        profileImage.layer.addSublayer(borderLayer)
+    }
 }
 
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
