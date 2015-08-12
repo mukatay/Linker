@@ -14,7 +14,6 @@ class AboutTableViewCell: UITableViewCell {
     
     @IBOutlet weak var versionText: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

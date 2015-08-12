@@ -13,7 +13,7 @@ import Parse
 import MobileCoreServices
 
 class ShareViewController: UIViewController{
-
+    
     @IBOutlet var shareView: UIView!
     
     @IBOutlet weak var tableView: UITableView!
@@ -32,7 +32,7 @@ class ShareViewController: UIViewController{
     }
     
     func isContentValid() -> Bool {
-
+        
         return true
     }
     
@@ -47,8 +47,10 @@ class ShareViewController: UIViewController{
         } else {
             self.navigationItem.rightBarButtonItem?.enabled = true
         }
-
+        
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.topItem?.leftBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir Next", size: 18)!], forState: .Normal)
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir Next", size: 18)!], forState: .Normal)
         
         if(!Parse.isLocalDatastoreEnabled()){
             Parse.enableLocalDatastore()
@@ -117,11 +119,11 @@ class ShareViewController: UIViewController{
                 }
             }
         }
-
+        
     }
     
     @IBAction func shareButton(sender: AnyObject) {
-
+        
         if let serializedAccessToken = NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.objectForKey("FacebookAccessToken") as? NSData
         {
             if let accessToken = NSKeyedUnarchiver.unarchiveObjectWithData(serializedAccessToken) as? FBSDKAccessToken
@@ -134,6 +136,7 @@ class ShareViewController: UIViewController{
                     let object = FBSDKShareOpenGraphObject(properties: properties)
                     let action = FBSDKShareOpenGraphAction(type: "news.publishes", object: object, key: "article")
                     action.setString("true", forKey: "fb:explicitly_shared")
+                    
                     let content = FBSDKShareOpenGraphContent()
                     content.action = action
                     
@@ -161,9 +164,8 @@ class ShareViewController: UIViewController{
         return []
         
     }
- 
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        self.view.backgroundColor = UIColor.clearColor()
         if (segue.identifier == "show") {
             
             let friendListViewController = segue.destinationViewController as! FriendsListViewController
@@ -177,7 +179,8 @@ class ShareViewController: UIViewController{
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.view.backgroundColor = UIColor.whiteColor()
+        
+        navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         if let friendsVC = mostRecentFriendsViewController {
             self.friendsArray = friendsVC.getSelectedUsers()
@@ -189,7 +192,6 @@ class ShareViewController: UIViewController{
             self.navigationItem.rightBarButtonItem?.enabled = true
         }
     }
-
 }
 extension ShareViewController: UITableViewDataSource, UITableViewDelegate {
     
@@ -248,7 +250,7 @@ extension ShareViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    func tableView(tableView: UITableView, hacanEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return indexPath.row > 1 // First two rows should not be deletable
     }
     
@@ -257,6 +259,9 @@ extension ShareViewController: UITableViewDataSource, UITableViewDelegate {
             self.friendsArray.removeAtIndex(indexPath.row - 2)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             tableView.reloadData()
+        }
+        if friendsArray.isEmpty {
+            self.navigationItem.rightBarButtonItem?.enabled = false
         }
     }
 }

@@ -24,12 +24,15 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.tintColor = UIColor(red: 10/255.0, green: 194/255.0, blue: 90/255.0, alpha: 1.0)
+
         tableView.dataSource = self
         tableView.delegate =  self
         searchBar.delegate = self
         
         self.tableView.allowsMultipleSelection = true
-                FBSDKGraphRequest(graphPath: "/me/taggable_friends", parameters: ["limit" : "300"], HTTPMethod: "GET").startWithCompletionHandler { (connection: FBSDKGraphRequestConnection!, result: AnyObject?, error: NSError?) -> Void in
+                FBSDKGraphRequest(graphPath: "/me/taggable_friends", parameters: ["limit" : "5000"], HTTPMethod: "GET").startWithCompletionHandler { (connection: FBSDKGraphRequestConnection!, result: AnyObject?, error: NSError?) -> Void in
             if error == nil {
                 if let data = result?["data"] as? [[String: AnyObject]] {
                     NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")?.setObject(data, forKey: "FBData")

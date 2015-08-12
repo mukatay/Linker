@@ -10,6 +10,7 @@ import UIKit
 import Parse
 
 class SettingsTableViewCell: UITableViewCell {
-//Add comment
+
     @IBOutlet weak var titleLabel: UILabel!
+    
 }

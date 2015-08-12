@@ -15,7 +15,7 @@ class ProfileViewController: UIViewController, MFMailComposeViewControllerDelega
     var sectionTitles = [ "Settings & Feedback" ]
     
     var sectionData = [["About", "Send Feedback", "Review on the App Store", "Log Out" ]]
-
+    
     @IBOutlet weak var headerView: UIView!
     
     @IBOutlet weak var tableView: UITableView!
@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController, MFMailComposeViewControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.allowsSelection = true
@@ -55,7 +55,6 @@ class ProfileViewController: UIViewController, MFMailComposeViewControllerDelega
     
     override func viewWillAppear(animated: Bool) {
         navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Avenir Next", size: 22)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
-       
     }
     
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
@@ -119,13 +118,13 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         headerView.titleLabel.text = sectionTitles[section]
         return headerView
     }
-
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == 0 {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let destination = storyboard.instantiateViewControllerWithIdentifier("About") as! UIViewController
             navigationController?.pushViewController(destination, animated: true)
-
+            
         }else if indexPath.row == 1 {
             let mailComposeViewController = configuredMailComposeViewController()
             if MFMailComposeViewController.canSendMail() {
@@ -133,7 +132,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             } else {
                 self.showSendMailErrorAlert()
             }
-
+            
         }else if indexPath.row == 2 {
             
             let appStoreURL = NSURL(string: "itms-apps://itunes.apple.com/app/id=1028675163?mt=8")

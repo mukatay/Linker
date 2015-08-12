@@ -12,7 +12,7 @@ class AboutViewController: UIViewController {
     
     var sectionTitles = [ "App version", "Development & Design" ]
     
-    var sectionData = [[ "Linker      1.0"], ["Darkhan Mukatay" ]]
+    var sectionData = [[ "Linker"], ["Darkhan Mukatay" ]]
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -47,8 +47,13 @@ extension AboutViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("aboutCell", forIndexPath: indexPath) as! AboutTableViewCell
         let value = sectionData[indexPath.section][indexPath.row]
         cell.tableText.text = value
+        if indexPath.section == 0 && indexPath.row == 0 {
+            cell.versionText.text = "1.0.0"
+        }else {
+            cell.versionText.text = ""
+        }
         cell.selectionStyle = UITableViewCellSelectionStyle.None
-        
+ 
         return cell
     }
     

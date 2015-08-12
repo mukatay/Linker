@@ -1,2 +1,2 @@
 
-This app shares Linker tags safari extension to Facebook
+Linker - share links with friends

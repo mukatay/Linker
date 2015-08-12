@@ -21,14 +21,16 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UITabl
     var searchActive : Bool = false
     var filtered:[FBUser] = []
     var selectedUsers : [FBUser] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        tableView.tintColor = UIColor(red: 10/255.0, green: 194/255.0, blue: 90/255.0, alpha: 1.0)
+
         view.layer.cornerRadius = 6
         view.layer.masksToBounds = true
         drawNavBarCorners()
-
+        
         let backItem = UIBarButtonItem(title: "Back", style: .Plain, target: nil, action: nil)
         backItem.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir Next", size: 18)!, NSForegroundColorAttributeName: UIColor.whiteColor()], forState: .Normal)
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backItem
@@ -37,12 +39,12 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.dataSource = self
         tableView.delegate =  self
         searchBar.delegate = self
-
+        
         selectedUsers = []
         self.tableView.allowsMultipleSelection = true
         
         if let fbData = NSUserDefaults(suiteName: "group.mukatay.TestShareDefaults")!.objectForKey("FBData") as? [AnyObject] {
-
+            
             for object in fbData {
                 if let username = object["name"] as? String, id = object["id"] as? String {
                     let picture = object["picture"] as? [String: AnyObject]
@@ -58,9 +60,9 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     override func viewWillAppear(animated: Bool) {
-        navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Avenir Next", size: 19)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
+        navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
     }
-
+    
     func drawNavBarCorners() {
         var capa = self.navigationController?.navigationBar.layer
         
@@ -99,7 +101,7 @@ extension FriendsListViewController: UITableViewDataSource {
         cell.friendListUsername.text = friend.username
         
         cell.accessoryType = UITableViewCellAccessoryType.None
-
+        
         if checked[friend.username] == true {
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark
         }
