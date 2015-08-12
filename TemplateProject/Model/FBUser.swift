@@ -18,4 +18,18 @@ class FBUser {
         self.fbId = fbId
         self.profilePic = profilePic
     }
+    
+    init(data: [String: String?]) {
+        self.username = data["username"]!!
+        self.fbId = data["fbId"]!!
+        self.profilePic = data["profilePic"]!
+    }
+    
+    func toJson() -> [String: String?] {
+        return [
+            "username": username,
+            "fbId": fbId,
+            "profilePic": profilePic,
+        ]
+    }
 }

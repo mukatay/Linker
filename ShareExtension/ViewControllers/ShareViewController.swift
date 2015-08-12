@@ -22,6 +22,7 @@ class ShareViewController: UIViewController{
     var friendsFbId: [String]
     
     var itemProperties: [ NSObject: AnyObject]?
+    var fbFriendsDictionary: [String: String]?
     
     var mostRecentFriendsViewController: FriendsListViewController?
     

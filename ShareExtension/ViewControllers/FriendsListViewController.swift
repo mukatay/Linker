@@ -21,7 +21,7 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UITabl
     var searchActive : Bool = false
     var filtered:[FBUser] = []
     var selectedUsers : [FBUser] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,6 +39,7 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.dataSource = self
         tableView.delegate =  self
         searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.Done
         
         selectedUsers = []
         self.tableView.allowsMultipleSelection = true
@@ -79,6 +80,10 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UITabl
 }
 
 extension FriendsListViewController: UITableViewDataSource {
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -161,6 +166,7 @@ extension FriendsListViewController: UISearchBarDelegate {
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
         let options = NSStringCompareOptions.CaseInsensitiveSearch
+    
         if searchText == "" {
             searchActive = false
         } else {
@@ -168,6 +174,12 @@ extension FriendsListViewController: UISearchBarDelegate {
             searchActive = true
         }
         self.tableView.reloadData()
+    }
+
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.view.endEditing(true)
+        
+        navigationController?.popViewControllerAnimated(true)
     }
 }
 
