@@ -81,9 +81,9 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UITabl
 
 extension FriendsListViewController: UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
-    }
+//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        return 2
+//    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -114,8 +114,8 @@ extension FriendsListViewController: UITableViewDataSource {
         if let urlString = friend.profilePic, url = NSURL(string: urlString) {
             cell.friendListPicture.layer.masksToBounds = true;
             cell.friendListPicture.layer.cornerRadius = cell.friendListPicture.frame.height/2;
-            cell.friendListPicture.sd_setImageWithURL(url)
-//          profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NAME"))
+//            cell.friendListPicture.sd_setImageWithURL(url)
+            cell.friendListPicture.sd_setImageWithURL(url, placeholderImage: UIImage(named: "ProfilePlaceholder"))
         }
         return cell
     }

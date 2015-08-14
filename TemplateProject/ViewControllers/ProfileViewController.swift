@@ -47,8 +47,8 @@ class ProfileViewController: UIViewController, MFMailComposeViewControllerDelega
         if let urlString = user?.valueForKey("profilePicture") as? String, url = NSURL(string: urlString) {
             self.profileImage.layer.masksToBounds = true
             self.profileImage.layer.cornerRadius = self.profileImage.frame.height/2
-            profileImage.sd_setImageWithURL(url)
-//            profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NAME"))
+//            profileImage.sd_setImageWithURL(url)
+            profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "ProfilePlaceholder"))
         }
         setBorder()
     }

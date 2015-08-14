@@ -30,6 +30,7 @@ class AboutViewController: UIViewController {
         tableView.registerNib(UINib(nibName: "ProfileSectionHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "ProfileSectionHeader")
         
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
@@ -78,5 +79,4 @@ extension AboutViewController: UITableViewDataSource, UITableViewDelegate {
         headerView.titleLabel.text = sectionTitles[section]
         return headerView
     }
-    
 }

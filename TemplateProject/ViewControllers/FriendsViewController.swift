@@ -89,8 +89,8 @@ extension FriendsViewController: UITableViewDataSource {
         if let urlString = friend.profilePic, url = NSURL(string: urlString) {
             cell.friendPicture.layer.masksToBounds = true;
             cell.friendPicture.layer.cornerRadius = cell.friendPicture.frame.height/2;
-            cell.friendPicture.sd_setImageWithURL(url)
-//          profileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NAME"))
+//            cell.friendPicture.sd_setImageWithURL(url)
+            cell.friendPicture.sd_setImageWithURL(url, placeholderImage: UIImage(named: "ProfilePlaceholder"))
         }
         return cell
     }

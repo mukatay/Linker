@@ -33,6 +33,9 @@ class MyLoginViewController: PFLogInViewController {
         self.logInView?.facebookButton?.layer.shadowOffset = CGSizeMake(0, 2)
         self.logInView?.facebookButton?.layer.shadowRadius = 4
         self.logInView?.facebookButton?.layer.shadowOpacity = 0.5
+        
+        self.logInView?.logo?.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.logInView?.facebookButton?.setTranslatesAutoresizingMaskIntoConstraints(false)
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,28 +44,32 @@ class MyLoginViewController: PFLogInViewController {
     }
     
     override func viewDidLayoutSubviews() {
- 
         
         if let logInView = self.logInView, facebookButton = self.logInView?.facebookButton, logo = self.logInView?.logo {
             
-            logo.sizeToFit()
+            if logInView.constraints().count == 0 {
             
-            let topConstraint = NSLayoutConstraint(item: logo, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: logInView, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 143.0)
-            logInView.addConstraint(topConstraint)
+                logo.contentMode = .Center
+                logo.sizeToFit()
+                
+                let topConstraint = NSLayoutConstraint(item: logo, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: logInView, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 130.0)
+                logInView.addConstraint(topConstraint)
+                
+                let xConstraint = NSLayoutConstraint(item: logo, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: logInView, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 8)
+                logInView.addConstraint(xConstraint)
+                
+                let topFbConstraint = NSLayoutConstraint(item: facebookButton, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: logInView, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 380)
+                logInView.addConstraint(topFbConstraint)
+                
+                let widthFbConstraint = NSLayoutConstraint(item: facebookButton, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 280)
+                logInView.addConstraint(widthFbConstraint)
+                
+                let centerFbConstraint = NSLayoutConstraint(item: facebookButton, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: logInView, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
+                logInView.addConstraint(centerFbConstraint)
+            }
             
-            let xConstraint = NSLayoutConstraint(item: logo, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: logInView, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
-            view.addConstraint(xConstraint)
-            
-            let topFbConstraint = NSLayoutConstraint(item: facebookButton, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: logInView, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 283.0)
-            logInView.addConstraint(topFbConstraint)
-            
-            let leftFbConstraint = NSLayoutConstraint(item: facebookButton, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: logInView, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 20)
-            logInView.addConstraint(leftFbConstraint)
-            
-            let rightFbConstraint = NSLayoutConstraint(item: facebookButton, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: logInView, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 20)
-            logInView.addConstraint(rightFbConstraint)
-            
+            logo.setNeedsLayout()
+            logo.layoutIfNeeded()
         }
-        
     }
 }
